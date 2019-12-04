@@ -5,6 +5,7 @@ import { KinveyModule } from "kinvey-nativescript-sdk/lib/angular";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
+import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 
 import { Config } from "./shared/config";
 import { AppRoutingModule } from "./app-routing.module";
@@ -30,6 +31,7 @@ import { AppComponent } from "./app.component";
         }),
         NativeScriptFormsModule,
         NativeScriptUIListViewModule,
+        NativeScriptUIDataFormModule, 
     ],
     declarations: [
         AppComponent

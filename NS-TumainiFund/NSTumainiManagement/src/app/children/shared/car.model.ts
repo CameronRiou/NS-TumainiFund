@@ -4,7 +4,7 @@ export class Car {
     last_name: string;
     age: number;
     gender: string;
-    date_of_birth: number;
+    date_of_birth: Date;
     school_name: string;
     school_id: number;
     school_level: string;
@@ -25,7 +25,7 @@ export class Car {
         this.last_name = options.last_name
         this.age = Number(options.age)
         this.gender = options.gender
-        this.date_of_birth = Number(options.date_of_birth)
+        this.date_of_birth = new Date(options.date_of_birth)
         this.school_name = options.school_name
         this.school_id = Number(options.school)
         this.school_level = options.school_level

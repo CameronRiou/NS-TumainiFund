@@ -3,6 +3,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 
+
 import { ChildrenRoutingModule } from "./children-routing.module";
 import { ChildrenComponent } from "./children.component";
 import { ChildDetailComponent } from "./child-detail/child-detail.component";

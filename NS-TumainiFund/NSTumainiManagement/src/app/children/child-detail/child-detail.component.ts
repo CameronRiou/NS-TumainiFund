@@ -15,10 +15,10 @@ import { CarService } from "../shared/car.service";
     templateUrl: "./child-detail.component.html"
 })
 export class ChildDetailComponent implements OnInit {
-    private _car: Car;
+    private _child: Car;
 
     constructor(
-        private _carService: CarService,
+        private _childService: CarService,
         private _pageRoute: PageRoute,
         private _routerExtensions: RouterExtensions
     ) { }
@@ -36,14 +36,14 @@ export class ChildDetailComponent implements OnInit {
         this._pageRoute.activatedRoute
             .pipe(switchMap((activatedRoute) => activatedRoute.params))
             .forEach((params) => {
-                const carId = params.id;
+                const childID = params.id;
 
-                this._car = this._carService.getCarById(carId);
+                this._child = this._childService.getCarById(childID);
             });
     }
 
-    get car(): Car {
-        return this._car;
+    get child(): Car {
+        return this._child;
     }
 
     /* ***********************************************************
@@ -58,7 +58,7 @@ export class ChildDetailComponent implements OnInit {
     * Check out the edit page in the /cars/car-detail-edit folder.
     *************************************************************/
     onEditButtonTap(): void {
-        this._routerExtensions.navigate(["/children/child-detail-edit", this._car.id],
+        this._routerExtensions.navigate(["/children/child-detail-edit", this.child.id],
             {
                 animated: true,
                 transition: {
