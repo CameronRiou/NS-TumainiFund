@@ -1,117 +1,17 @@
-<!-- <ActionBar class="action-bar">
-    <!--HACK - we should remove the navigation button--><!--
+<ActionBar class="action-bar">
     <NavigationButton visibility="collapsed"></NavigationButton>
     <ActionItem ios.position="left" android.position="left" (tap)="onCancelButtonTap()">
         <Label text="Cancel" class="action-item"></Label>
     </ActionItem>
-    <Label class="action-bar-title" text="Edit Car Details" horizontalAlignment="center"></Label>
-    <ActionItem ios.position="right" android.position="right">
+    <Label class="action-bar-title" text="Edit Child Details" horizontalAlignment="center"></Label>
+    <!-- <ActionItem ios.position="right" android.position="right">
         <Label text="Done" class="action-item" verticalAlignment="center" (tap)="onDoneButtonTap()"
             [isEnabled]="makeModel.valid && imageModel.valid"
             [isUserInteractionEnabled]="makeModel.valid && imageModel.valid"></Label>
+    </ActionItem> -->
+    <ActionItem ios.position="right" android.position="right" (tap)="onDoneButtonTap()">
+        <Label text="Done" class="action-item" verticalAlignment="center"></Label>
     </ActionItem>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <ScrollView> -->
-
-        <!-- <GridLayout class="car-list list-group" rows="auto, auto, auto, auto">
-            <GridLayout rows="auto, auto" columns="*, *" class="list-group-item-content">
-                    <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5">
-                        <FormattedString ios:fontFamily="system">
-                            <Span text="&#xf2c2;  " class="fas text-primary"></Span>
-                            <Span [text]="car.id"></Span>
-                        </FormattedString>
-                    </Label>
-                    <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2"></StackLayout>
-            </GridLayout>
-            <Label row="1" [text]="car.image" class="m-br-15" style="text-align: center"></Label>
-            <Image row="1" [src]="car.image" stretch="aspectFill" height="200" class="m-b-15"></Image>
-
-            <StackLayout row="2" class="hr-light m-t-15 m-b-15"></StackLayout> -->
-
-
-            <RadDataForm row="3" tkExampleTitle tkToggleNavButton [source]="car"></RadDataForm>
-
-            <!-- <GridLayout row="3" class="car-list" columns="7*, 10*" rows="auto">
-                <StackLayout class="car-list" col="0" textWrap="true">
-                    <Label text="First Name" class="car-list-odd"></Label>
-                    <Label text="Last Name" class="car-list-odd"></Label>
-                    <Label text="Date of Birth" class="car-list-odd"></Label>
-                </StackLayout>
-                <StackLayout class="car-list" col="1">
-                    <TextField #makeModel="ngModel" [(ngModel)]="car.first_name" class="car-list-even" required textWrap="true"></TextField>
-                    <TextField #makeModel="ngModel" [(ngModel)]="car.last_name" class="car-list-even" required textWrap="true"></TextField>
-                    <DatePicker #makeModel="ngModel" [(ngModel)]="car.date_of_birth" class="car-list-even" required textWrap="true"></DatePicker>
-                </StackLayout>
-            </GridLayout> -->
-
-                <!-- <GridLayout rows="*, 55, *" columns="*, auto" class="car-list-odd">
-                    <Label text="PRICE PER DAY"></Label>
-                    <Label col="1" horizontalAlignment="right" class="text-primary car-list-price">
-                        <FormattedString>
-                            <Span text="€"></Span>
-                            <Span [text]="pricePerDay"></Span>
-                        </FormattedString>
-                    </Label>
-
-                    <StackLayout row="1" colSpan="2" verticalAlignment="center">
-                        <Slider [(ngModel)]="pricePerDay"></Slider>
-                    </StackLayout>
-
-                    <Label text="ADD OR REMOVE IMAGE" row="2" colSpan="2"></Label>
-                </GridLayout>
-
-                <StackLayout class="car-list-even"> -->
-                <!--
-                    MyImageAddRemove is a custom component, that wraps an imagepicker plugin and provides custom design and logic
-                    on top of it. Check out the custom component at /cars/car-detail-edit/my-image-add-remove.
-                    -->
-                <!-- <MyImageAddRemove #imageModel="ngModel" [(ngModel)]="carImageUrl" required></MyImageAddRemove>
-                    <Label *ngIf="!imageModel.valid" class="ng-invalid-image" text="Image field is required"></Label>
-                </StackLayout>
-
-                <Label class="car-list-odd" text="CLASS"></Label>
-
-                <StackLayout class="car-list-even"> -->
-                <!--
-                    MyListSelector is a custom component, that provides custom design and logic for picking an option from a list.
-                    Check out the custom component at /cars/car-detail-edit/my-list-selector.
-                    -->
-                <!-- <MyListSelector [(selectedValue)]="car.class" [items]="carClassOptions" tag="class"></MyListSelector>
-                </StackLayout>
-
-                <Label class="car-list-odd" text="DOORS"></Label>
-
-                <StackLayout class="car-list-even">
-                    <MyListSelector [(selectedValue)]="car.doors" [items]="carDoorOptions" tag="doors"></MyListSelector>
-                </StackLayout>
-
-                <Label class="car-list-odd" text="SEATS"></Label>
-
-                <StackLayout class="car-list-even">
-                    <MyListSelector [(selectedValue)]="car.seats" [items]="carSeatOptions" tag="seats"></MyListSelector>
-                </StackLayout>
-
-                <Label class="car-list-odd" text="TRANSMISSION"></Label>
-
-                <StackLayout class="car-list-even">
-                    <MyListSelector [(selectedValue)]="car.transmission" [items]="carTransmissionOptions" tag="transmission"></MyListSelector>
-                </StackLayout>
-
-                <GridLayout rows="*, 55" columns="*, auto" class="car-list-odd">
-                    <Label text="LUGGAGE"></Label>
-                    <Label col="1" horizontalAlignment="right" class="text-primary">
-                        <FormattedString>
-                            <Span [text]="luggageValue"></Span>
-                            <Span text=" Bag(s)"></Span>
-                        </FormattedString>
-                    </Label>
-                    <Slider row="1" colSpan="2" minValue="0" maxValue="5" [(ngModel)]="luggageValue"></Slider>
-                </GridLayout> -->
-            <!-- </StackLayout> -->
-        <!-- </GridLayout>
-    </ScrollView>
-
-    <ActivityIndicator [busy]="isUpdating"></ActivityIndicator>
-</GridLayout> -->
+<RadDataForm tkExampleTitle tkToggleNavButton id="child-edit" class="form" [source]="car" [metadata]="childMetadata"></RadDataForm>

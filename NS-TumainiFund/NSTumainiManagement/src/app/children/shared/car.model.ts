@@ -16,7 +16,7 @@ export class Car {
     medical_support: boolean;
     future_educational_goals: string;
     transport_to_clinic: boolean;
-    image: string
+    image: string;
 
 
     constructor(options: any) {

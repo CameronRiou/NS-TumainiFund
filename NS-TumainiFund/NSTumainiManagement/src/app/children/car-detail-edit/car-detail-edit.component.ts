@@ -8,6 +8,8 @@ import { Car } from "../shared/car.model";
 import { CarService } from "../shared/car.service";
 import { carClassList, carDoorList, carSeatList, carTransmissionList } from "./constants";
 
+const childMetadata = require('../shared/child-edit.metadata.json');
+
 /* ***********************************************************
 * This is the item detail edit component.
 * This component gets the selected data item, provides options to edit the item and saves the changes.
@@ -25,13 +27,16 @@ export class CarDetailEditComponent implements OnInit {
     private _carTransmissionOptions: Array<string> = [];
     private _isCarImageDirty: boolean = false;
     private _isUpdating: boolean = false;
+    private _childMetadata
 
     constructor(
         private _carService: CarService,
         private _carEditService: CarEditService,
         private _pageRoute: PageRoute,
-        private _routerExtensions: RouterExtensions
-    ) { }
+        private _routerExtensions: RouterExtensions,
+        ) {
+            this._childMetadata = JSON.parse(JSON.stringify(childMetadata));
+        }
 
     /* ***********************************************************
     * Use the "ngOnInit" handler to get the data item id parameter passed through navigation.
@@ -52,6 +57,10 @@ export class CarDetailEditComponent implements OnInit {
 
                 this._car = this._carEditService.startEdit(carId);
             });
+    }
+
+    get childMetadata() {
+        return this._childMetadata;
     }
 
     get isUpdating(): boolean {
@@ -117,6 +126,7 @@ export class CarDetailEditComponent implements OnInit {
     * Check out the data service as cars/shared/car.service.ts
     *************************************************************/
     onDoneButtonTap(): void {
+        this._routerExtensions.backToPreviousPage();
         /* ***********************************************************
         * By design this app is set up to work with read-only sample data.
         * Follow the steps in the "Kinvey database setup" section in app/readme.md file
@@ -158,18 +168,18 @@ export class CarDetailEditComponent implements OnInit {
         /* ***********************************************************
         * Comment out the code block below if you made the app editable.
         *************************************************************/
-        const readOnlyMessage = "Check out the \"Kinvey database setup\" section in the readme file to make it editable."; // tslint:disable-line:max-line-length
-        const queue = Promise.resolve();
-        queue.then(() => alert({ title: "Read-Only Template!", message: readOnlyMessage, okButtonText: "Ok" }))
-            .then(() => this._routerExtensions.navigate(["/cars"], {
-                clearHistory: true,
-                animated: true,
-                transition: {
-                    name: "slideBottom",
-                    duration: 200,
-                    curve: "ease"
-                }
-            }));
+        // const readOnlyMessage = "Check out the \"Kinvey database setup\" section in the readme file to make it editable."; // tslint:disable-line:max-line-length
+        // const queue = Promise.resolve();
+        // queue.then(() => alert({ title: "Read-Only Template!", message: readOnlyMessage, okButtonText: "Ok" }))
+        //     .then(() => this._routerExtensions.navigate(["/cars"], {
+        //         clearHistory: true,
+        //         animated: true,
+        //         transition: {
+        //             name: "slideBottom",
+        //             duration: 200,
+        //             curve: "ease"
+        //         }
+        //     }));
     }
 
     private initializeEditOptions(): void {

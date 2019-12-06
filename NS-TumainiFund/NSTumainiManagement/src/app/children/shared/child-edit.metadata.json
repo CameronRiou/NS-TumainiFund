@@ -1,0 +1,107 @@
+{
+    "isReadOnly": false,
+    "commitMode": "Immediate",
+    "validationMode": "Immediate",
+    "propertyAnnotations":
+    [
+        {
+            "name": "first_name",
+            "displayName": "First Name",
+            "index": 0
+        },
+        {
+            "name": "last_name",
+            "displayName": "Last Name",
+            "index": 1
+        },
+        {
+            "name": "date_of_birth",
+            "displayName": "Date of Birth",
+            "index": 2,
+            "editor": "DatePicker"
+        },
+        {
+            "name": "gender",
+            "displayName": "Gender",
+            "index": 3
+        },
+        {
+            "name": "school_name",
+            "displayName": "School",
+            "index": 4
+        },
+        {
+            "name": "school_level",
+            "displayName": "School Level",
+            "index": 5
+        },
+        {
+            "name": "books",
+            "displayName": "Books",
+            "index": 6,
+            "editor": "Switch"
+        },
+        {
+            "name": "head_of_family",
+            "displayName": "Head of Family",
+            "index": 7,
+            "editor": "text"
+        },
+        {
+            "name": "hof_relation",
+            "displayName": "Relation to Head of Family",
+            "index": 8
+        },
+        {
+            "name": "personal_status",
+            "displayName": "Personal Status",
+            "index": 9
+        },
+        {
+            "name": "hygiene_kits",
+            "displayName": "Hygiene Kits",
+            "index": 10,
+            "editor": "Switch"
+        },
+        {
+            "name": "medical_support",
+            "displayName": "Medical Support",
+            "index": 11,
+            "editor": "Switch"
+        },
+        {
+            "name": "future_educational_goals",
+            "displayName": "Future Educational Goal",
+            "index": 12,
+            "editor": "MultilineText"
+        },
+        {
+            "name": "transport_to_clinic",
+            "displayName": "Transport to Clinic",
+            "index": 13,
+            "editor": "Switch"
+        },
+        {
+            "name": "id",
+            "index": 14,
+            "ignore": true,
+            "editor": "Number"
+        },
+        {
+            "name": "age",
+            "index": 15,
+            "ignore": true
+        },
+        {
+            "name": "school_id",
+            "index": 16,
+            "ignore": true,
+            "editor": "Number"
+        },
+        {
+            "name": "image",
+            "index": 17,
+            "ignore": true
+        }
+    ]
+}

@@ -84,6 +84,10 @@ NavigationButton {
   color: $ab-color;
 }
 
+.action-item.edit {
+  color: $ab-background;
+}
+
 .action-item:disabled {
   color: rgba($ab-color, 0.5);
 }
@@ -122,4 +126,8 @@ Slider {
 .fas {
   font-family: Font Awesome 5 Free, fa-solid-900;
   font-weight: 900;
+}
+
+.form {
+  color: black;
 }
