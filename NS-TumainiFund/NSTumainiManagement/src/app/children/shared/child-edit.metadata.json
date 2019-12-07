@@ -45,11 +45,11 @@
             "name": "head_of_family",
             "displayName": "Head of Family",
             "index": 7,
-            "editor": "text"
+            "editor": "Text"
         },
         {
             "name": "hof_relation",
-            "displayName": "Relation to Head of Family",
+            "displayName": "Head of Family's Relation to Child",
             "index": 8
         },
         {
@@ -90,7 +90,8 @@
         {
             "name": "age",
             "index": 15,
-            "ignore": true
+            "ignore": true,
+            "editor": "Number"
         },
         {
             "name": "school_id",
