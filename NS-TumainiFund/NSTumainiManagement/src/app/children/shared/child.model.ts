@@ -1,4 +1,4 @@
-export class Car {
+export class Child {
     id: string;
     first_name: string;
     last_name: string;
@@ -6,7 +6,7 @@ export class Car {
     gender: string;
     date_of_birth: Date;
     school_name: string;
-    school_id: number;
+    school: number;
     school_level: string;
     books: boolean;
     head_of_family: string;
@@ -27,7 +27,7 @@ export class Car {
         this.gender = options.gender
         this.date_of_birth = new Date(options.date_of_birth)
         this.school_name = options.school_name
-        this.school_id = Number(options.school)
+        this.school = Number(options.school)
         this.school_level = options.school_level
         this.books = options.books
         this.head_of_family = options.head_of_family

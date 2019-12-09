@@ -7,102 +7,120 @@
         {
             "name": "first_name",
             "displayName": "First Name",
-            "index": 0
+            "index": 0,
+            "required": true
         },
         {
             "name": "last_name",
             "displayName": "Last Name",
-            "index": 1
+            "index": 1,
+            "required": true
         },
         {
             "name": "date_of_birth",
             "displayName": "Date of Birth",
             "index": 2,
-            "editor": "DatePicker"
+            "editor": "DatePicker",
+            "required": true
         },
         {
             "name": "gender",
             "displayName": "Gender",
-            "index": 3
+            "index": 3,
+            "required": true
         },
         {
             "name": "school_name",
             "displayName": "School",
-            "index": 4
+            "index": 4,
+            "required": true
         },
         {
             "name": "school_level",
             "displayName": "School Level",
-            "index": 5
+            "index": 5,
+            "required": true
         },
         {
             "name": "books",
             "displayName": "Books",
             "index": 6,
-            "editor": "Switch"
+            "editor": "Switch",
+            "required": true
         },
         {
             "name": "head_of_family",
             "displayName": "Head of Family",
             "index": 7,
-            "editor": "Text"
+            "editor": "Text",
+            "required": true
         },
         {
             "name": "hof_relation",
             "displayName": "Head of Family's Relation to Child",
-            "index": 8
+            "index": 8,
+            "required": true
         },
         {
             "name": "personal_status",
             "displayName": "Personal Status",
-            "index": 9
+            "index": 9,
+            "required": true
         },
         {
             "name": "hygiene_kits",
             "displayName": "Hygiene Kits",
             "index": 10,
-            "editor": "Switch"
+            "editor": "Switch",
+            "required": true
         },
         {
             "name": "medical_support",
             "displayName": "Medical Support",
             "index": 11,
-            "editor": "Switch"
+            "editor": "Switch",
+            "required": true
         },
         {
             "name": "future_educational_goals",
             "displayName": "Future Educational Goal",
             "index": 12,
-            "editor": "MultilineText"
+            "editor": "MultilineText",
+            "required": true
         },
         {
             "name": "transport_to_clinic",
             "displayName": "Transport to Clinic",
             "index": 13,
-            "editor": "Switch"
+            "editor": "Switch",
+            "required": true
         },
         {
             "name": "id",
             "index": 14,
             "ignore": true,
-            "editor": "Number"
+            "editor": "Number",
+            "required": true
         },
         {
             "name": "age",
             "index": 15,
             "ignore": true,
-            "editor": "Number"
+            "editor": "Number",
+            "required": true
         },
         {
             "name": "school_id",
             "index": 16,
             "ignore": true,
-            "editor": "Number"
+            "editor": "Number",
+            "required": true
         },
         {
             "name": "image",
             "index": 17,
-            "ignore": true
+            "ignore": true,
+            "required": true
         }
     ]
 }

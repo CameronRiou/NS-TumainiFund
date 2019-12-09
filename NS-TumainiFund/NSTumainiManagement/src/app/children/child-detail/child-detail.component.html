@@ -1,7 +1,8 @@
 <ActionBar class="action-bar">
     <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBackButtonTap()">
     </NavigationButton>
-    <Label class="action-bar-title" [text]="child.name" horizontalAlignment="center"></Label>
+    <!-- <ActionItem ios.position="left" android.systemIcon="ic_menu_back" android.position="left" ios.systemIcon="9" class="action-item" (tap)="onBackButtonTap()"></ActionItem> -->
+    <Label class="action-bar-title" text="{{child.first_name}} {{child.last_name}}" horizontalAlignment="center"></Label>
     <ActionItem ios.position="right" android.position="right" (tap)="onEditButtonTap()">
         <Label text="Edit" class="action-item"></Label>
     </ActionItem>

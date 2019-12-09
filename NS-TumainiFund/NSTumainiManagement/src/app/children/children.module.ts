@@ -7,7 +7,7 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import { ChildrenRoutingModule } from "./children-routing.module";
 import { ChildrenComponent } from "./children.component";
 import { ChildDetailComponent } from "./child-detail/child-detail.component";
-import { CarDetailEditComponent } from "./car-detail-edit/car-detail-edit.component";
+import { ChildDetailEditComponent } from "./child-detail-edit/child-detail-edit.component";
 
 @NgModule({
     imports: [
@@ -19,7 +19,7 @@ import { CarDetailEditComponent } from "./car-detail-edit/car-detail-edit.compon
     declarations: [
         ChildrenComponent,
         ChildDetailComponent,
-        CarDetailEditComponent,
+        ChildDetailEditComponent,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

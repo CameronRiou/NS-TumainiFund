@@ -1,68 +1,70 @@
 import { Injectable } from "@angular/core";
-// TODO: should be imported from kinvey-nativescript-sdk/angular but declaration file is currently missing
-import { DataStoreService, FilesService, UserService, Query, DataStoreType } from "kinvey-nativescript-sdk/lib/angular";
-import { File } from "tns-core-modules/file-system";
 
+/************** Plugins ***************/
+import { DataStoreService, FilesService, UserService, Query, DataStoreType } from "kinvey-nativescript-sdk/angular";
+//import { File } from "tns-core-modules/file-system";
+
+/************** Models and Configs ***************/
 import { Config } from "../../shared/config";
-import { Car } from "./car.model";
+import { Child } from "./child.model";
 
+/************** Constant Initialization ***************/
 const editableProperties = [
-    "class",
-    "doors",
-    "hasAC",
-    "transmission",
-    "luggage",
-    "name",
-    "price",
-    "seats",
-    "imageUrl"
+    "first_name",
+    "last_name",
+    "date_of_birth",
+    "gender",
+    "school_name",
+    "school_level",
+    "books",
+    "head_of_family",
+    "hof_relation",
+    "personal_status",
+    "hygiene_kits",
+    "medical_support",
+    "future_educational_goals",
+    "transport_to_clinic"
 ];
 
+/************** Service Initialization ***************/
 @Injectable({
     providedIn: "root"
 })
-export class CarService {
-    private static cloneUpdateModel(car: Car): object {
-        // tslint:disable-next-line:ban-comma-operator
-        return editableProperties.reduce((a, e) => (a[e] = car[e], a), { _id: car.id });
+export class ChildService {
+    /************** Variable Initialization ***************/
+    private static cloneUpdateModel(child: Child): object {
+        return editableProperties.reduce((a, e) => (a[e] = child[e], a), { _id: child.id });
     }
-
-    private _allChildren: Array<Car> = [];
+    private _allChildren: Array<Child> = [];
     private _childrenStore = null;
-    private temp: number;
 
+    /************** Constructor ***************/
     constructor(
         dataStoreService: DataStoreService,
         private _filesService: FilesService,
-        private _userService: UserService) {
+        private _userService: UserService
+    ) {
         this._childrenStore = dataStoreService.collection("children");
     }
 
-    getCarById(id: string): Car {
-        if (!id) {
-            return;
-        }
-
-        return this._allChildren.filter((car) => {
-            return car.id === id;
-        })[0];
-    }
-
-    async streamFile(id: string) {
-        try {
-            const file = await this._filesService.stream(id);
-            return file;
-        } catch (error) {
-            console.log(error);
+    /************** Functions ***************/
+    getChildById(id: string): Child {
+        if (id) {            
+            return this._allChildren.filter((child) => {
+                console.dir(child)
+                return child.id === id;
+            })[0];
         }
     }
 
     updateChild(childData){
         childData.id = childData._id;
+        /*
         this.streamFile(childData.image_id).then((output: any) => {
             childData.image = output._downloadURL;
         })
-        const child = new Car(childData);
+        */
+        const child = new Child(childData);
         console.dir(child);
         return child;
     }
@@ -78,19 +80,21 @@ export class CarService {
         }).then((data) => {
             this._allChildren = [];
             data.forEach((childData: any) => {
-                let car = this.updateChild(childData)
-                this._allChildren.push(car);
+                let child = this.updateChild(childData)
+                this._allChildren.push(child);
             })            
             return this._allChildren;        
         });
     }
 
-    update(childModel: Car): Promise<any> {
-        const updateModel = CarService.cloneUpdateModel(childModel);
-
+    update(childModel: Child): Promise<any> {
+        console.log(childModel);
+        const updateModel = ChildService.cloneUpdateModel(childModel);
+        console.log(updateModel)
         return this._childrenStore.save(updateModel);
     }
 
+    /*
     uploadImage(remoteFullPath: string, localFullPath: string): Promise<any> {
         const imageFile = File.fromPath(localFullPath);
         const imageContent = imageFile.readSync();
@@ -118,11 +122,11 @@ export class CarService {
                 } else {
                     Promise.reject(new Error("No items with the given ID could be found."));
                 }
-            });
+            }    
+        );
     }
-
-
-
+    */
+    /************** Private Functions ***************/
     private login(): Promise<any> {
         if (!!this._userService.getActiveUser()) {
             return Promise.resolve();
@@ -131,9 +135,22 @@ export class CarService {
         }
     }
 
+    /*
     private getMimeType(imageExtension: string): string {
         const extension = imageExtension === "jpg" ? "jpeg" : imageExtension;
-
         return "image/" + extension.replace(/\./g, "");
     }
+    */
+
+    /************** Async Functions ***************/
+    /*
+    async streamFile(id: string) {
+        try {
+            const file = await this._filesService.stream(id);
+            return file;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    */
 }

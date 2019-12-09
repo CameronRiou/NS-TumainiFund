@@ -2,21 +2,21 @@
 @import '../../../app-variables';
 
 // Custom styles
-.car-list {
+.child-list {
 
-    .car-list-even,
-    .car-list-odd {
+    .child-list-even,
+    .child-list-odd {
         padding: 10 15;
         border-bottom-width: $border-width;
         border-color: $blue-20;
     }
 
-    .car-list-odd {
+    .child-list-odd {
         background-color: $blue-10;
         color: $blue-50;
     }
 
-    .car-list-price {
+    .child-list-price {
         width: 35;
         text-align: right;
     }

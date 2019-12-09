@@ -3,8 +3,8 @@ import { ModalDialogOptions, ModalDialogService } from "nativescript-angular/mod
 import { PageRoute } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
 
-import { CarEditService } from "../../shared/car-edit.service";
-import { Car } from "../../shared/car.model";
+import { ChildEditService } from "../../shared/child-edit.service";
+import { Child } from "../../shared/child.model";
 import { MyListSelectorModalViewComponent } from "./my-list-selector-modal-view.component";
 
 const capitalizeFirstLetter = (s) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -26,29 +26,29 @@ export class MyListSelectorComponent implements OnInit {
     @Input() selectedValue: string;
     @Output() selectedValueChange = new EventEmitter<string>();
 
-    private _carEditModel: Car;
+    private _childEditModel: Child;
 
     constructor(
         private _pageRoute: PageRoute,
         private _modalService: ModalDialogService,
         private _vcRef: ViewContainerRef,
-        private _carEditService: CarEditService) { }
+        private _childEditService: ChildEditService) { }
 
     ngOnInit(): void {
-        let carId = "";
+        let childId = "";
 
         // use switchMap to get the latest activatedRoute instance
         this._pageRoute.activatedRoute
             .pipe(switchMap((activatedRoute) => activatedRoute.params))
             .forEach((params) => {
-                carId = params.id;
+                childId = params.id;
             });
 
-        this._carEditModel = this._carEditService.getEditableCarById(carId);
+        this._childEditModel = this._childEditService.getEditableChildById(childId);
     }
 
     onSelectorTap(): void {
-        const title = `Select Car ${capitalizeFirstLetter(this.tag)}`;
+        const title = `Select Child ${capitalizeFirstLetter(this.tag)}`;
         const selectedIndex = this.items.indexOf(this.selectedValue);
         const options: ModalDialogOptions = {
             viewContainerRef: this._vcRef,

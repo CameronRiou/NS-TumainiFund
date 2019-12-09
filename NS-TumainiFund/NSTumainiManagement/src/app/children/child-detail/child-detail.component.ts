@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { PageRoute, RouterExtensions } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
 
-import { Car } from "../shared/car.model";
-import { CarService } from "../shared/car.service";
+import { Child } from "../shared/child.model";
+import { ChildService } from "../shared/child.service";
 
 /* ***********************************************************
 * This is the item details component in the master-detail structure.
@@ -15,10 +15,10 @@ import { CarService } from "../shared/car.service";
     templateUrl: "./child-detail.component.html"
 })
 export class ChildDetailComponent implements OnInit {
-    private _child: Car;
+    private _child: Child;
 
     constructor(
-        private _childService: CarService,
+        private _childService: ChildService,
         private _pageRoute: PageRoute,
         private _routerExtensions: RouterExtensions
     ) { }
@@ -38,11 +38,11 @@ export class ChildDetailComponent implements OnInit {
             .forEach((params) => {
                 const childID = params.id;
 
-                this._child = this._childService.getCarById(childID);
+                this._child = this._childService.getChildById(childID);
             });
     }
 
-    get child(): Car {
+    get child(): Child {
         return this._child;
     }
 
@@ -50,12 +50,20 @@ export class ChildDetailComponent implements OnInit {
     * The back button is essential for a master-detail feature.
     *************************************************************/
     onBackButtonTap(): void {
-        this._routerExtensions.backToPreviousPage();
+        this._routerExtensions.navigate(["/children"],
+        {
+            animated: true,
+            transition: {
+                name: "slideTop",
+                duration: 200,
+                curve: "ease"
+            }
+        });
     }
 
     /* ***********************************************************
     * The master-detail template comes with an example of an item edit page.
-    * Check out the edit page in the /cars/car-detail-edit folder.
+    * Check out the edit page in the /child/child-detail-edit folder.
     *************************************************************/
     onEditButtonTap(): void {
         this._routerExtensions.navigate(["/children/child-detail-edit", this.child.id],
