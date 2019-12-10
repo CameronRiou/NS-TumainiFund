@@ -21,7 +21,8 @@
             "displayName": "Date of Birth",
             "index": 2,
             "editor": "DatePicker",
-            "required": true
+            "required": true,
+            "strokeColor": "black"
         },
         {
             "name": "gender",

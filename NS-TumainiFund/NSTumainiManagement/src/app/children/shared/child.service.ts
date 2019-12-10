@@ -23,7 +23,11 @@ const editableProperties = [
     "hygiene_kits",
     "medical_support",
     "future_educational_goals",
-    "transport_to_clinic"
+    "transport_to_clinic",
+    "id",
+    "age",
+    "school_id",
+    "image"
 ];
 
 /************** Service Initialization ***************/
@@ -51,7 +55,6 @@ export class ChildService {
     getChildById(id: string): Child {
         if (id) {            
             return this._allChildren.filter((child) => {
-                console.dir(child)
                 return child.id === id;
             })[0];
         }
@@ -65,7 +68,6 @@ export class ChildService {
         })
         */
         const child = new Child(childData);
-        console.dir(child);
         return child;
     }
 
@@ -88,9 +90,7 @@ export class ChildService {
     }
 
     update(childModel: Child): Promise<any> {
-        console.log(childModel);
         const updateModel = ChildService.cloneUpdateModel(childModel);
-        console.log(updateModel)
         return this._childrenStore.save(updateModel);
     }
 

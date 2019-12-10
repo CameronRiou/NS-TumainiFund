@@ -45,18 +45,24 @@
                     </FormattedString>
                 </Label>
 
-                <Label text="School" class="p-l-15 p-b-10 m-r-20 text-secondary" row="3" textWrap = 'true'></Label>
-                <Label [text]="child.school_name" row="3" col="1" class="text p-b-10" textWrap = 'true'></Label>
-
                 <Label text="Head Of Family" class="p-l-15 p-b-10 m-r-20 text-secondary" row="5" textWrap = 'true'></Label>
                 <Label [text]="child.head_of_family" row="5" col="1" class="text p-b-10" textWrap = 'true'></Label>
-
+                
+                <Label text="Head of Family's Relation to Child" class="p-l-15 p-b-10 m-r-20 text-secondary" row="10" textWrap = 'true'></Label>
+                <Label [text]="child.hof_relation" row="10" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                
                 <Label text="Gender" class="p-l-15 p-b-10 m-r-20 text-secondary" row="6" textWrap = 'true'></Label>
                 <Label [text]="child.gender" row="6" col="1" class="text p-b-10" textWrap = 'true' textTransform="capitalize"></Label>
-
+                
+                <Label text="School" class="p-l-15 p-b-10 m-r-20 text-secondary" row="3" textWrap = 'true'></Label>
+                <Label [text]="child.school_name" row="3" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                
                 <Label text="School Level" class="p-l-15 p-b-10 m-r-20 text-secondary" row="7" textWrap = 'true'></Label>
                 <Label [text]="child.school_level" row="7" col="1" class="text p-b-10" textWrap = 'true'></Label>
 
+                <Label text="Future Educational Goals" class="p-l-15 p-b-10 m-r-20 text-secondary" row="14" textWrap = 'true'></Label>
+                <Label [text]="child.future_educational_goals" row="14" col="1" class="text p-b-10"></Label>
+                
                 <Label text="Date of Birth" class="p-l-15 p-b-10 m-r-20 text-secondary" row="8" textWrap = 'true'></Label>
                 <Label row="8" col="1" class="text p-b-10" textWrap = 'true'>
                     <FormattedString>
@@ -70,10 +76,7 @@
 
                 <Label text="Is the child provided books?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="9" textWrap = 'true'></Label>
                 <Label [text]="child.books ? 'Yes' : 'No'" row="9" col="1" class="text p-b-10" textWrap = 'true'></Label>
-
-                <Label text="Head of Family's Relation to Child" class="p-l-15 p-b-10 m-r-20 text-secondary" row="10" textWrap = 'true'></Label>
-                <Label [text]="child.hof_relation" row="10" col="1" class="text p-b-10" textWrap = 'true'></Label>
-
+                
                 <Label text="Personal Status" class="p-l-15 p-b-10 m-r-20 text-secondary" row="11" textWrap = 'true'></Label>
                 <Label [text]="child.personal_status" row="11" col="1" class="text p-b-10" textWrap = 'true'></Label>
 
@@ -82,9 +85,6 @@
 
                 <Label text="Is the child provided medical support?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="13" textWrap = 'true'></Label>
                 <Label [text]="child.medical_support ? 'Yes' : 'No'" row="13" col="1" class="text p-b-10"></Label>
-
-                <Label text="Future Educational Goals" class="p-l-15 p-b-10 m-r-20 text-secondary" row="14" textWrap = 'true'></Label>
-                <Label [text]="child.future_educational_goals" row="14" col="1" class="text p-b-10"></Label>
 
                 <Label text="Is the child provided transport to the clinic?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="15" textWrap = 'true'></Label>
                 <Label [text]="child.transport_to_clinic ? 'Yes' : 'No'" row="15" col="1" class="text p-b-10"></Label>

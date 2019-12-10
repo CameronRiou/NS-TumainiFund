@@ -64,6 +64,17 @@ export class ChildDetailEditComponent implements OnInit {
         return this._child;
     }
 
+    getAge(dateString) {
+        let today = new Date();
+        let birthDate = new Date(dateString);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
     /* ***********************************************************
     * The edit cancel button navigates back to the item details page.
     *************************************************************/
@@ -92,11 +103,12 @@ export class ChildDetailEditComponent implements OnInit {
                 this._child.imageUrl = uploadedFile.url;
             });
     }*/
+    let date_of_birth = this._child.date_of_birth
     let to_submit:any = this._child;
-    to_submit.date_of_birth = this._child.date_of_birth.toISOString();
-    console.log(to_submit.date_of_birth);
-    /*
-    queue.then(() => this._childService.update(this._child))
+    to_submit.date_of_birth = date_of_birth.toISOString();
+    to_submit.age = this.getAge(date_of_birth)
+    
+    queue.then(() => this._childService.update(to_submit))
         .then(() => {
             this._isUpdating = false;
             this._routerExtensions.navigate(["/children"], {
@@ -113,7 +125,7 @@ export class ChildDetailEditComponent implements OnInit {
             this._isUpdating = false;
             alert({ title: "Oops!", message: "Something went wrong. Please try again.", okButtonText: "Ok" });
         });
-    */
+    
     /*********************uncomment here*************************/
 
     /* ***********************************************************

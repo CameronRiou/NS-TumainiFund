@@ -27,7 +27,11 @@
                             <Label class="p-b-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="&#xf783;   " class="fas text-primary"></Span>
-                                    <Span [text]="child.age"></Span>
+                                    <Span [text]="child.date_of_birth.getDate()"></Span>
+                                    <Span text="/"></Span>
+                                    <Span [text]="child.date_of_birth.getMonth() + 1"></Span>
+                                    <Span text="/"></Span>
+                                    <Span [text]="child.date_of_birth.getFullYear()"></Span>
                                 </FormattedString>
                             </Label>
                             <Label class="p-b-10">
