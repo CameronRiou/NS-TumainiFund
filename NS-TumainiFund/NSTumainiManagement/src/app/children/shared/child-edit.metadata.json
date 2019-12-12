@@ -28,7 +28,9 @@
             "name": "gender",
             "displayName": "Gender",
             "index": 3,
-            "required": true
+            "required": true,
+            "editor": "Picker",
+            "valuesProvider": ["Male","Female","Other"]
         },
         {
             "name": "school_name",
@@ -40,7 +42,9 @@
             "name": "school_level",
             "displayName": "School Level",
             "index": 5,
-            "required": true
+            "required": true,
+            "editor": "Picker",
+            "valuesProvider": ["Pre","Primary","Secondary","Post 16","University"]
         },
         {
             "name": "books",
@@ -111,7 +115,7 @@
             "required": true
         },
         {
-            "name": "school_id",
+            "name": "school",
             "index": 16,
             "ignore": true,
             "editor": "Number",

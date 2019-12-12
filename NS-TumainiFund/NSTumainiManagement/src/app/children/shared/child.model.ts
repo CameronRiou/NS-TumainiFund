@@ -3,11 +3,11 @@ export class Child {
     first_name: string;
     last_name: string;
     age: number;
-    gender: string;
+    gender: number;
     date_of_birth: Date;
     school_name: string;
     school: number;
-    school_level: string;
+    school_level: number;
     books: boolean;
     head_of_family: string;
     hof_relation: string;
@@ -24,11 +24,11 @@ export class Child {
         this.first_name = options.first_name
         this.last_name = options.last_name
         this.age = Number(options.age)
-        this.gender = options.gender
+        this.gender = Number(options.gender)
         this.date_of_birth = new Date(options.date_of_birth)
         this.school_name = options.school_name
         this.school = Number(options.school)
-        this.school_level = options.school_level
+        this.school_level = Number(options.school_level)
         this.books = options.books
         this.head_of_family = options.head_of_family
         this.hof_relation = options.hof_relation
