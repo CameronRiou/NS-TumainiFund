@@ -40,10 +40,6 @@ export class ChildrenComponent implements OnInit {
 
         this._childService.load()
             .then((children: Array<Child> ) => {
-                this._feedback.success({
-                    title: "Connected Successfully",
-                    message: "Connected to child DB"
-                })
                 this._children = new ObservableArray(children);
                 this._isLoading = false;
             })

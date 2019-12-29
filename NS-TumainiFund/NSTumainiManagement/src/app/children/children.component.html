@@ -1,6 +1,8 @@
 <ActionBar class="action-bar">
-    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left"></ActionItem>
+	<NavigationButton visibility="collapsed"></NavigationButton>
+	<ActionItem class="action-item" (tap)="onDrawerButtonTap()" ios.position="left">
+		<Label class="fas" text="&#xf0c9;"></Label>
+	</ActionItem>
     <Label class="action-bar-title" text="Children"></Label>
 </ActionBar>
 <GridLayout class="page page-content" tkExampleTitle tkToggleNavButton>

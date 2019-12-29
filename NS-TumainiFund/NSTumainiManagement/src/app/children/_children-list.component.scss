@@ -13,8 +13,15 @@
             background-color: $background-light;
         }
 
-        .fa {
-            color: $accent-dark;
+		.fa,
+		.fab,
+		.fas,
+		.far {
+            color: $primary-color;
         }
     }
+}
+
+#test1 {
+	color: $ab-text;
 }
