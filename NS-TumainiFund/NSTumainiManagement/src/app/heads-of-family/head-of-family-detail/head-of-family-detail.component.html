@@ -1,0 +1,144 @@
+<ActionBar class="action-bar">
+	<NavigationButton visibility="collapsed"></NavigationButton>
+	<ActionItem class="action-item" (tap)="onBackButtonTap()" ios.position="left">
+		<Label class="fas" text="&#xf053;"></Label>
+	</ActionItem>
+    <Label class="action-bar-title" text="{{child.first_name}} {{child.last_name}}" horizontalAlignment="center"></Label>
+    <ActionItem class="action-item" ios.position="right" android.position="right" (tap)="onEditButtonTap()">
+        <Label text="Edit"></Label>
+    </ActionItem>
+</ActionBar>
+
+<GridLayout class="page page-content">
+    <ScrollView class="list-group">
+        <GridLayout id="detail" class="list-group-item" rows="auto, auto, auto, auto">
+            <GridLayout rows="auto, auto" columns="*, *" class="list-group-item-content">
+                <Label>
+                    <FormattedString ios:fontFamily="system">
+                        <Span text="&#xf007;  " class="fas text-primary"></Span>
+                        <Span text="{{child.first_name}} {{child.last_name}}"></Span>
+                    </FormattedString>
+                </Label>
+                <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5">
+                    <FormattedString ios:fontFamily="system">
+                        <Span text="&#xf2c2;  " class="fas text-primary"></Span>
+                        <Span [text]="child.id"></Span>
+                    </FormattedString>
+                </Label>
+                <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2"></StackLayout>
+            </GridLayout>
+
+            <Label row="1" [text]="child.image" class="m-br-15" style="text-align: center"></Label>
+            <Image row="1" [src]="child.image" stretch="aspectFill" height="200" class="m-b-15"></Image>
+
+            <StackLayout row="2" class="hr-light m-t-15 m-b-15"></StackLayout>
+
+            <GridLayout row="3" rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" columns="10*, 7*">
+
+                <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary" row="1" textWrap = 'true'></Label>
+                <Label col="1" class="text p-b-10" text="{{child.first_name}} {{child.last_name}}" row="1" textWrap = 'true'></Label>
+
+                <Label text="Age" class="p-l-15 p-b-10 m-r-20 text-secondary" row="2" textWrap = 'true'></Label>
+                <Label col="1" row="2" class="text p-b-10" textWrap = 'true'>
+                    <FormattedString>
+                        <Span [text]="child.age"></Span>
+                        <Span text=" Years Old"></Span>
+                    </FormattedString>
+                </Label>
+                
+                <Label text="Gender" class="p-l-15 p-b-10 m-r-20 text-secondary" row="3" textWrap = 'true'></Label>
+                <Label [text]="child.gender" row="3" col="1" class="text p-b-10" textWrap = 'true' textTransform="capitalize"></Label>
+                
+                <Label text="Date of Birth" class="p-l-15 p-b-10 m-r-20 text-secondary" row="4" textWrap = 'true'></Label>
+                <Label row="4" col="1" class="text p-b-10" textWrap = 'true'>
+                    <FormattedString>
+                        <Span [text]="child.date_of_birth.getDate()"></Span>
+                        <Span text="/"></Span>
+                        <Span [text]="child.date_of_birth.getMonth() + 1"></Span>
+                        <Span text="/"></Span>
+                        <Span [text]="child.date_of_birth.getFullYear()"></Span>
+                    </FormattedString>
+				</Label>
+				
+				<Label text="Assigned Children" class="p-l-15 p-b-10 m-r-20 text-secondary" row="5" textWrap="true"></Label>
+				<Label [text]="child.assigned_children_number" row="5" col="1" textWrap="true"></Label>
+
+				<Label text='Assigned Office' class='p-l-15 p-b-10 m-r-20 text-secondary' row='6' textWrap='true'></Label>
+				<Label [text]='child.assigned_office_name' row='6' col='1' textWrap='true'></Label>
+
+				<Label text='Village' class='p-l-15 p-b-10 m-r-20 text-secondary' row='7' textWrap='true'></Label>
+				<Label [text]='child.village_name' row='7' col='1' textWrap='true'></Label>
+
+				<Label text='Deanery' class='p-l-15 p-b-10 m-r-20 text-secondary' row='8' textWrap='true'></Label>
+				<Label [text]='child.deanery_name' row='8' col='1' textWrap='true'></Label>
+
+				<Label text='Diocese' class='p-l-15 p-b-10 m-r-20 text-secondary' row='9' textWrap='true'></Label>
+				<Label [text]='child.diocese_name' row='9' col='1' textWrap='true'></Label>
+
+				<Label text='Parish Worker' class='p-l-15 p-b-10 m-r-20 text-secondary' row='10' textWrap='true'></Label>
+				<Label [text]='child.parish_worker_name' row='10' col='1' textWrap='true'></Label>
+
+				<Label text='Social Worker' class='p-l-15 p-b-10 m-r-20 text-secondary' row='11' textWrap='true'></Label>
+				<Label [text]='child.social_worker_name' row='11' col='1' textWrap='true'></Label>
+
+				<Label text='Receiving Money?' class='p-l-15 p-b-10 m-r-20 text-secondary' row='12' textWrap='true'></Label>
+				<Label [text]='child.receiving_money' row='12' col='1' textWrap='true'></Label>
+
+				<Label text='Assigned Sponsor' class='p-l-15 p-b-10 m-r-20 text-secondary' row='13' textWrap='true'></Label>
+				<Label [text]='child.assigned_sponsor_name' row='13' col='1' textWrap='true'></Label>
+
+				<Label text='Verified By Guernsey?' class='p-l-15 p-b-10 m-r-20 text-secondary' row='14' textWrap='true'></Label>
+				<Label [text]='child.verified_by_guernsey' row='14' col='1' textWrap='true'></Label>
+
+				<Label text='Date Verified' class='p-l-15 p-b-10 m-r-20 text-secondary' row='15' textWrap='true'></Label>
+				<!-- <Label row="15" col="1" class="text p-b-10" textWrap = 'true'>
+                    <FormattedString>
+                        <Span [text]="child.date_verified.getDate()"></Span>
+                        <Span text="/"></Span>
+                        <Span [text]="child.date_verified.getMonth() + 1"></Span>
+                        <Span text="/"></Span>
+                        <Span [text]="child.date_verified.getFullYear()"></Span>
+                    </FormattedString>
+				</Label> -->
+				<Label [text]='child.date_verified' row='15' col='1' textWrap='true'></Label>
+
+				<Label text='House Type' class='p-l-15 p-b-10 m-r-20 text-secondary' row='16' textWrap='true'></Label>
+				<Label [text]='child.house_type_name' row='16' col='1' textWrap='true'></Label>
+
+				<Label text='House Provided?' class='p-l-15 p-b-10 m-r-20 text-secondary' row='17' textWrap='true'></Label>
+				<Label [text]='child.house_provided' row='17' col='1' textWrap='true'></Label>
+
+				<Label text='Diet Type' class='p-l-15 p-b-10 m-r-20 text-secondary' row='18' textWrap='true'></Label>
+				<Label [text]='child.diet_type_name' row='18' col='1' textWrap='true'></Label>
+
+				<Label text='Food Needs' class='p-l-15 p-b-10 m-r-20 text-secondary' row='19' textWrap='true'></Label>
+				<Label [text]='child.food_needs' row='19' col='1' textWrap='true'></Label>
+
+				<Label text='Work Type' class='p-l-15 p-b-10 m-r-20 text-secondary' row='20' textWrap='true'></Label>
+				<Label [text]='child.work_type_name' row='20' col='1' textWrap='true'></Label>
+
+				<Label text='Distance To Work (Km)' class='p-l-15 p-b-10 m-r-20 text-secondary' row='21' textWrap='true'></Label>
+				<Label [text]='child.distance_to_work' row='21' col='1' textWrap='true'></Label>
+
+				<Label text='Record Creator' class='p-l-15 p-b-10 m-r-20 text-secondary' row='22' textWrap='true'></Label>
+				<Label [text]='child.created_by' row='22' col='1' textWrap='true'></Label>
+
+				<Label text='Nearest Hospital' class='p-l-15 p-b-10 m-r-20 text-secondary' row='23' textWrap='true'></Label>
+				<Label [text]='child.nearest_hospital_name' row='23' col='1' textWrap='true'></Label>
+
+				<Label text='Distance to Hospital (Km)' class='p-l-15 p-b-10 m-r-20 text-secondary' row='24' textWrap='true'></Label>
+				<Label [text]='child.distance_to_hospital' row='24' col='1' textWrap='true'></Label>
+
+				<Label text='Water Type' class='p-l-15 p-b-10 m-r-20 text-secondary' row='25' textWrap='true'></Label>
+				<Label [text]='child.water_type_name' row='25' col='1' textWrap='true'></Label>
+
+				<Label text='Distance to Water (Km)' class='p-l-15 p-b-10 m-r-20 text-secondary' row='26' textWrap='true'></Label>
+				<Label [text]='child.distance_to_water' row='26' col='1' textWrap='true'></Label>
+
+				<Label text='Situation' class='p-l-15 p-b-10 m-r-20 text-secondary' row='27' textWrap='true'></Label>
+				<Label [text]='child.situation' row='27' col='1' textWrap='true'></Label>
+
+            </GridLayout>
+        </GridLayout>
+    </ScrollView>
+</GridLayout>

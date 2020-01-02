@@ -3,35 +3,35 @@ import { PageRoute, RouterExtensions } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
 import { alert } from "tns-core-modules/ui/dialogs";
 
-import { ChildEditService } from "../shared/child-edit.service";
-import { Child } from "../shared/child.model";
-import { ChildService } from "../shared/child.service";
+import { HeadOfFamilyEditService } from "../shared/head-of-family-edit.service";
+import { HeadOfFamily } from "../shared/head-of-family.model";
+import { HeadOfFamilyService } from "../shared/head-of-family.service";
 import { Property } from "tns-core-modules/ui/page/page";
 
-const childMetadata = require('../shared/child-edit.metadata.json');
+const HeadOfFamilyMetadata = require('../shared/head-of-family-edit.metadata.json');
 
 /* ***********************************************************
 * This is the item detail edit component.
 * This component gets the selected data item, provides options to edit the item and saves the changes.
 *************************************************************/
 @Component({
-	selector: "ChildDetailEdit",
-	templateUrl: "./child-detail-edit.component.html",
-	styleUrls: ["./child-detail-edit.component.scss"]
+	selector: "HeadOfFamilyDetailEdit",
+	templateUrl: "./head-of-family-detail-edit.component.html",
+	styleUrls: ["./head-of-family-detail-edit.component.scss"]
 })
-export class ChildDetailEditComponent implements OnInit {
-	private _child: Child;
-	private _isChildImageDirty: boolean = false;
+export class HeadOfFamilyDetailEditComponent implements OnInit {
+	private _HeadOfFamily: HeadOfFamily;
+	private _isHeadOfFamilyImageDirty: boolean = false;
 	private _isUpdating: boolean = false;
-	private _childMetadata
+	private _HeadOfFamilyMetadata
 
 	constructor(
-		private _childService: ChildService,
-		private _childEditService: ChildEditService,
+		private _HeadOfFamilyService: HeadOfFamilyService,
+		private _HeadOfFamilyEditService: HeadOfFamilyEditService,
 		private _pageRoute: PageRoute,
 		private _routerExtensions: RouterExtensions,
 	) {
-		this._childMetadata = JSON.parse(JSON.stringify(childMetadata));
+		this._HeadOfFamilyMetadata = JSON.parse(JSON.stringify(HeadOfFamilyMetadata));
 	}
 
     /* ***********************************************************
@@ -47,22 +47,22 @@ export class ChildDetailEditComponent implements OnInit {
 		this._pageRoute.activatedRoute
 			.pipe(switchMap((activatedRoute) => activatedRoute.params))
 			.forEach((params) => {
-				const childId = params.id;
+				const HeadOfFamilyId = params.id;
 
-				this._child = this._childEditService.startEdit(childId);
+				this._HeadOfFamily = this._HeadOfFamilyEditService.startEdit(HeadOfFamilyId);
 			});
 	}
 
-	get childMetadata() {
-		return this._childMetadata;
+	get HeadOfFamilyMetadata() {
+		return this._HeadOfFamilyMetadata;
 	}
 
 	get isUpdating(): boolean {
 		return this._isUpdating;
 	}
 
-	get child(): Child {
-		return this._child;
+	get HeadOfFamily(): HeadOfFamily {
+		return this._HeadOfFamily;
 	}
 
 	getAge(dateString) {
@@ -81,7 +81,7 @@ export class ChildDetailEditComponent implements OnInit {
 	}
 
 	valid() {
-		let child: Child = this.child
+		let child: HeadOfFamily = this.HeadOfFamily
 		let checks =
 			[
 				{
@@ -110,61 +110,114 @@ export class ChildDetailEditComponent implements OnInit {
 					]
 				},
 				{
-					"description": "Scchool Name",
-					"property": "school_name",
+					"description": "Assigned Children",
+					"property": "assigned_children_number",
+					"type": "number"
+				},
+				{
+					"description": "Assigned Office",
+					"property": "assigned_office_name",
+					"type": "string",
+				},
+				{
+					"description": "Village",
+					"property": "village_name",
 					"type": "string"
 				},
 				{
-					"description": "School Level",
-					"property": "school_level",
-					"type": "picker",
-					"options": [
-						"Pre",
-						"Primary",
-						"Secondary",
-						"Post 16",
-						"University"
-					]
+					"description": "Deanery",
+					"property": "deanery_name",
+					"type": "string"
 				},
 				{
-					"description": "Books",
-					"property": "books",
+					"description": "Diocese",
+					"property": "diocese_name",
+					"type": "string"
+				},
+				{
+					"description": "Parish Worker",
+					"property": "parish_worker_name",
+					"type": "string"
+				},
+				{
+					"description": "Social Worker",
+					"property": "social_worker_name",
+					"type": "string"
+				},
+				{
+					"description": "Receiving Money?",
+					"property": "receiving_money",
 					"type": "boolean"
 				},
 				{
-					"description": "Head Of Family",
-					"property": "head_of_family",
+					"description": "Assigned Sponsor",
+					"property": "assigned_sponsor_name",
 					"type": "string"
 				},
 				{
-					"description": "Head of Family Relation",
-					"property": "hof_relation",
-					"type": "string"
-				},
-				{
-					"description": "Personal Status",
-					"property": "personal_status",
-					"type": "string"
-				},
-				{
-					"description": "Hygiene Kits",
-					"property": "hygiene_kits",
+					"description": "Verified By Guernsey?",
+					"property": "verified_by_guernsey",
 					"type": "boolean"
 				},
 				{
-					"description": "Medical Support",
-					"property": "medical_support",
-					"type": "boolean"
+					"description": "Date Verified",
+					"property": "date_verified",
+					"type": "date"
 				},
 				{
-					"description": "Future Educational Goals",
-					"property": "future_educational_goals",
+					"description": "House Type",
+					"property": "house_type_name",
 					"type": "string"
 				},
 				{
-					"description": "Transport To Clinic",
-					"property": "transport_to_clinic",
+					"description": "House Provided",
+					"property": "house_provided",
 					"type": "boolean"
+				},
+				{
+					"description": "Diet Type",
+					"property": "diet_type_name",
+					"type": "string"
+				},
+				{
+					"description": "Food Needs",
+					"property": "food_needs",
+					"type": "string"
+				},
+				{
+					"description": "Work Type",
+					"property": "work_type_name",
+					"type": "string"
+				},
+				{
+					"description": "Distance To Work",
+					"property": "distance_to_work",
+					"type": "number"
+				},
+				{
+					"description": "Nearest Hospital",
+					"property": "nearest_hospital_name",
+					"type": "string"
+				},
+				{
+					"description": "Distance To Hospital",
+					"property": "distance_to_hospital",
+					"type": "number"
+				},
+				{
+					"description": "Water Type",
+					"property": "water_type_name",
+					"type": "string"
+				},
+				{
+					"description": "Distance To Water",
+					"property": "distance_to_water",
+					"type": "number"
+				},
+				{
+					"description": "Situation",
+					"property": "situation",
+					"type": "string"
 				}
 			]
 		let valid = true
@@ -181,8 +234,8 @@ export class ChildDetailEditComponent implements OnInit {
 				default:
 					typeof child[field.property] != field.type ? valid = false : false;
 			}
-				child[field.property] == null ? valid = false : false;
-				child[field.property] === "" ? valid = false : false;
+			child[field.property] == null ? valid = false : false;
+			child[field.property] === "" ? valid = false : false;
 			if (!valid) return `${field.description} || ${child[field.property]}`
 		};
 		return valid
@@ -203,8 +256,8 @@ export class ChildDetailEditComponent implements OnInit {
 		this._isUpdating = true;
 
 		//this._child.school_level = ["Pre", "Primary", "Secondary", "Post 16", "University"][this._child.school_level]
-		let date_of_birth = this._child.date_of_birth
-		this._child.age = this.getAge(date_of_birth)
+		let date_of_birth = this._HeadOfFamily.date_of_birth
+		this._HeadOfFamily.age = this.getAge(date_of_birth)
 		
 		let answer = this.valid()
 		if (answer === true) {
@@ -225,10 +278,10 @@ export class ChildDetailEditComponent implements OnInit {
                     });
             }*/
 
-			queue.then(() => this._childService.update(this._child))
+			queue.then(() => this._HeadOfFamilyService.update(this._HeadOfFamily))
 				.then(() => {
 					this._isUpdating = false;
-					this._routerExtensions.navigate(["/children"], {
+					this._routerExtensions.navigate(["/heads-of-family"], {
 						clearHistory: true,
 						animated: true,
 						transition: {

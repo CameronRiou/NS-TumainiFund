@@ -156,14 +156,21 @@ $text-color: $blue-dark;
 
 /* #region Colors */
 $primary-color: #82CC33;
+$primary-text: black;
+
 $main-text: black;
-$background: white;
-$ab-text: $main-text;
+
+$section-background: white;
+$page-background: #e5e5e5;
+
+$ab-text: $primary-text;
 $ab-background: $primary-color;
-$sd-text: $main-text;
+
+$sd-text: $primary-text;
 $sd-text-active: $primary-color;
 $sd-header: $primary-color;
-$sd-background: $background;
+$sd-background: $page-background;
+
 //$secondary-color: #82CC33;
 // $primary-color: #65AB29;
 // $secondary-color: #65AB29;

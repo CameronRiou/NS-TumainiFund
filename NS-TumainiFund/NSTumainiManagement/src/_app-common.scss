@@ -95,7 +95,7 @@
 
 	/* #region Text */
 		.text {
-			color: $blue-dark;
+			color: $main-text;
 		}
 		
 		.text-primary {
@@ -142,3 +142,32 @@
 	/* #endregion 'Other' */
 
 /* #endregion 'All CSS' */
+
+/* #region Test CSS */
+.page {
+	background-color: $page-background;
+}
+
+.list-group {
+	.list-group-item {
+        padding: 0 0 8 0;
+        background-color: $page-background;
+
+		.list-group-item-content {
+            padding: 8 15 4 15;
+            background-color: $section-background;
+        }
+
+		.fa,
+		.fab,
+		.fas,
+		.far {
+            color: $primary-color;
+        }
+	}
+	
+	.list-group-item#detail {
+		background-color: $section-background;
+	}
+}
+/* #endregion 'Test CSS' */

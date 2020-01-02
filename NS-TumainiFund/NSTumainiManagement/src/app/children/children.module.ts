@@ -14,12 +14,12 @@ import { ChildDetailEditComponent } from "./child-detail-edit/child-detail-edit.
         NativeScriptCommonModule,
         ChildrenRoutingModule,
         NativeScriptFormsModule,
-        NativeScriptUIListViewModule,
+        NativeScriptUIListViewModule
     ],
     declarations: [
         ChildrenComponent,
         ChildDetailComponent,
-        ChildDetailEditComponent,
+        ChildDetailEditComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
