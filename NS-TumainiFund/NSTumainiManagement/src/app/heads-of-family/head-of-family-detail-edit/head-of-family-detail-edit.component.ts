@@ -236,7 +236,7 @@ export class HeadOfFamilyDetailEditComponent implements OnInit {
 			}
 			child[field.property] == null ? valid = false : false;
 			child[field.property] === "" ? valid = false : false;
-			if (!valid) return `${field.description} || ${child[field.property]}`
+			if (!valid) return `${field.description}: ${child[field.property]} - ${typeof child[field.property]}`
 		};
 		return valid
 	}
@@ -276,7 +276,7 @@ export class HeadOfFamilyDetailEditComponent implements OnInit {
                     .then((uploadedFile: any) => {
                         this._child.imageUrl = uploadedFile.url;
                     });
-            }*/
+			}*/
 
 			queue.then(() => this._HeadOfFamilyService.update(this._HeadOfFamily))
 				.then(() => {

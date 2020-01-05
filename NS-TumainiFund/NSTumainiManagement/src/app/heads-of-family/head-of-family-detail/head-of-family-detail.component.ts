@@ -39,7 +39,7 @@ export class HeadOfFamilyDetailComponent implements OnInit {
                 const HeadOfFamilyID = params.id;
 
                 this._HeadOfFamily = this._HeadOfFamilyService.getHeadOfFamilyById(HeadOfFamilyID);
-            });
+			});
     }
 
     get child(): HeadOfFamily {

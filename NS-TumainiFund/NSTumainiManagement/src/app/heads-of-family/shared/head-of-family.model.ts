@@ -71,7 +71,7 @@ export class HeadOfFamily {
 		this.assigned_sponsor = options.assigned_sponsor
 		this.assigned_sponsor_name = options.assigned_sponsor_name
 		this.verified_by_guernsey = options.verified_by_guernsey
-		this.date_verified = options.date_verified
+		this.date_verified = new Date(options.date_verified)
 		this.house_type = options.house_type
 		this.house_type_name = options.house_type_name
 		this.house_provided = options.house_provided

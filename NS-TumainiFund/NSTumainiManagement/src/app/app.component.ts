@@ -36,14 +36,11 @@ export class AppComponent implements OnInit {
 
     onNavItemTap(navItemRoute: string): void {
 		try {
-			console.log("Start")
-			console.log(navItemRoute)
 			this.routerExtensions.navigate([navItemRoute], {
 				transition: {
 					name: "fade"
 				}
 			});
-			console.log("Finish")
 		} catch (e) {
 			console.log(e)
 		}
