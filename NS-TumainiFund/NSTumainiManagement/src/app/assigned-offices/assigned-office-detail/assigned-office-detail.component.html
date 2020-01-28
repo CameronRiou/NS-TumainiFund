@@ -1,0 +1,96 @@
+<ActionBar class="action-bar">
+	<NavigationButton visibility="collapsed"></NavigationButton>
+	<ActionItem class="action-item" (tap)="onBackButtonTap()" ios.position="left">
+		<Label class="fas" text="&#xf053;"></Label>
+	</ActionItem>
+    <Label class="action-bar-title" text="{{assigned_office.first_name}} {{assigned_office.last_name}}" horizontalAlignment="center"></Label>
+    <ActionItem class="action-item" ios.position="right" android.position="right" (tap)="onEditButtonTap()">
+        <Label text="Edit"></Label>
+    </ActionItem>
+</ActionBar>
+
+<GridLayout class="page page-content">
+    <ScrollView class="list-group">
+        <GridLayout id="detail" class="list-group-item" rows="auto, auto, auto, auto">
+            <GridLayout rows="auto, auto" columns="*, *" class="list-group-item-content">
+                <Label>
+                    <FormattedString ios:fontFamily="system">
+                        <Span text="&#xf007;  " class="fas text-primary"></Span>
+                        <Span text="{{assigned_office.first_name}} {{assigned_office.last_name}}"></Span>
+                    </FormattedString>
+                </Label>
+                <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5">
+                    <FormattedString ios:fontFamily="system">
+                        <Span text="&#xf2c2;  " class="fas text-primary"></Span>
+                        <Span [text]="assigned_office.id"></Span>
+                    </FormattedString>
+                </Label>
+                <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2"></StackLayout>
+            </GridLayout>
+
+            <Label row="1" [text]="assigned_office.image" class="m-br-15" style="text-align: center"></Label>
+            <Image row="1" [src]="assigned_office.image" stretch="aspectFill" height="200" class="m-b-15"></Image>
+
+            <StackLayout row="2" class="hr-light m-t-15 m-b-15"></StackLayout>
+
+            <GridLayout row="3" rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" columns="10*, 7*">
+
+                <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary" row="1" textWrap = 'true'></Label>
+                <Label col="1" class="text p-b-10" text="{{assigned_office.first_name}} {{assigned_office.last_name}}" row="1" textWrap = 'true'></Label>
+
+                <Label text="Age" class="p-l-15 p-b-10 m-r-20 text-secondary" row="2" textWrap = 'true'></Label>
+                <Label col="1" row="2" class="text p-b-10" textWrap = 'true'>
+                    <FormattedString>
+                        <Span [text]="assigned_office.age"></Span>
+                        <Span text=" Years Old"></Span>
+                    </FormattedString>
+                </Label>
+
+                <Label text="Head Of Family" class="p-l-15 p-b-10 m-r-20 text-secondary" row="5" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.head_of_family" row="5" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                
+                <Label text="Head of Family's Relation to Child" class="p-l-15 p-b-10 m-r-20 text-secondary" row="10" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.hof_relation" row="10" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                
+                <Label text="Gender" class="p-l-15 p-b-10 m-r-20 text-secondary" row="6" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.gender" row="6" col="1" class="text p-b-10" textWrap = 'true' textTransform="capitalize"></Label>
+                
+                <Label text="School" class="p-l-15 p-b-10 m-r-20 text-secondary" row="3" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.school_name" row="3" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                
+                <Label text="School Level" class="p-l-15 p-b-10 m-r-20 text-secondary" row="7" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.school_level" row="7" col="1" class="text p-b-10" textWrap = 'true'></Label>
+
+                <Label text="Future Educational Goals" class="p-l-15 p-b-10 m-r-20 text-secondary" row="14" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.future_educational_goals" row="14" col="1" class="text p-b-10"></Label>
+                
+                <Label text="Date of Birth" class="p-l-15 p-b-10 m-r-20 text-secondary" row="8" textWrap = 'true'></Label>
+                <Label row="8" col="1" class="text p-b-10" textWrap = 'true'>
+                    <FormattedString>
+                        <Span [text]="assigned_office.date_of_birth.getDate()"></Span>
+                        <Span text="/"></Span>
+                        <Span [text]="assigned_office.date_of_birth.getMonth() + 1"></Span>
+                        <Span text="/"></Span>
+                        <Span [text]="assigned_office.date_of_birth.getFullYear()"></Span>
+                    </FormattedString>
+                </Label>
+
+                <Label text="Is the Child provided books?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="9" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.books ? 'Yes' : 'No'" row="9" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                
+                <Label text="Personal Status" class="p-l-15 p-b-10 m-r-20 text-secondary" row="11" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.personal_status" row="11" col="1" class="text p-b-10" textWrap = 'true'></Label>
+
+                <Label text="Is the Child provided hygiene kits?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="12" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.hygiene_kits ? 'Yes' : 'No'" row="12" col="1" class="text p-b-10" textWrap = 'true'></Label>
+
+                <Label text="Is the assigned_office provided medical support?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="13" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.medical_support ? 'Yes' : 'No'" row="13" col="1" class="text p-b-10"></Label>
+
+                <Label text="Is the assigned_office provided transport to the clinic?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="15" textWrap = 'true'></Label>
+                <Label [text]="assigned_office.transport_to_clinic ? 'Yes' : 'No'" row="15" col="1" class="text p-b-10"></Label>
+
+            </GridLayout>
+        </GridLayout>
+    </ScrollView>
+</GridLayout>

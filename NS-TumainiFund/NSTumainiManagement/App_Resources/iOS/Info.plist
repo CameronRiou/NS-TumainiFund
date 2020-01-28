@@ -6,8 +6,10 @@
 	<string>en</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<!-- <key>CFBundleDisplayName</key>
+	<string>${PRODUCT_NAME}</string> -->
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Tumaini Fund</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleInfoDictionaryVersion</key>

@@ -6,24 +6,44 @@ https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawe
 <RadSideDrawer [drawerTransition]="sideDrawerTransition">
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
-            <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+            <!-- <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
             <Label class="sidedrawer-header-brand" text="User Name"></Label>
-            <Label class="footnote" text="username@mail.com"></Label>
+            <Label class="footnote" text="username@mail.com"></Label> -->
         </StackLayout>
     
         <ScrollView row="1" class="sidedrawer-content">
             <StackLayout>
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/children')" (tap)="onNavItemTap('/children')">
-                    <Label col="0" text="&#xf015;" class="fa"></Label>
+                    <Label col="0" text="&#xf1ae;" class="fas"></Label>
                     <Label col="1" text="Children" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/heads-of-family')" (tap)="onNavItemTap('/heads-of-family')">
-                    <Label col="0" text="&#xf1ea;" class="fa"></Label>
+                    <Label col="0" text="&#xf0c0;" class="fas"></Label>
                     <Label col="1" text="Heads Of Family" class="p-r-10"></Label>
+				</GridLayout>
+				
+				<GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/schools')" (tap)="onNavItemTap('/schools')">
+                    <Label col="0" text="&#xf549;" class="fas"></Label>
+                    <Label col="1" text="Schools" class="p-r-10"></Label>
+				</GridLayout>
+								
+				<GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/sponsors')" (tap)="onNavItemTap('/sponsors')">
+                    <Label col="0" text="&#xf4b9;" class="fas"></Label>
+                    <Label col="1" text="Sponsors" class="p-r-10"></Label>
+                </GridLayout>
+				
+				<GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/parish-workers')" (tap)="onNavItemTap('/parish-workers')">
+                    <Label col="0" text="&#xf007;" class="fas"></Label>
+                    <Label col="1" text="Parish Workers" class="p-r-10"></Label>
+                </GridLayout>
+				
+				<GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/assigned-offices')" (tap)="onNavItemTap('/assigned-offices')">
+                    <Label col="0" text="&#xf1ad;" class="fas"></Label>
+                    <Label col="1" text="Assigned Offices" class="p-r-10"></Label>
                 </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/search')" (tap)="onNavItemTap('/search')">
+                <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/search')" (tap)="onNavItemTap('/search')">
                     <Label col="0" text="&#xf002;" class="fa"></Label>
                     <Label col="1" text="Search" class="p-r-10"></Label>
                 </GridLayout>
@@ -31,14 +51,14 @@ https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawe
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/featured')" (tap)="onNavItemTap('/featured')">
                     <Label col="0" text="&#xf005;" class="fa"></Label>
                     <Label col="1" text="Featured" class="p-r-10"></Label>
-                </GridLayout>
+                </GridLayout> -->
     
                 <StackLayout class="hr-light"></StackLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
+                <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
                     <Label col="0" text="&#xf013;" class="fa"></Label>
                     <Label col="1" text="Settings" class="p-r-10"></Label>
-                </GridLayout>
+                </GridLayout> -->
             </StackLayout>
         </ScrollView>
     </GridLayout>

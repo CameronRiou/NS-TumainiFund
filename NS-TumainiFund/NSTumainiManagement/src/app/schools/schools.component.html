@@ -1,0 +1,57 @@
+<ActionBar class="action-bar">
+	<NavigationButton visibility="collapsed"></NavigationButton>
+	<ActionItem class="action-item" (tap)="onDrawerButtonTap()" ios.position="left">
+		<Label class="fas" text="&#xf0c9;"></Label>
+	</ActionItem>
+    <Label class="action-bar-title" text="Schools"></Label>
+</ActionBar>
+<GridLayout class="page page-content" tkExampleTitle tkToggleNavButton>
+        <RadListView [items]="schools" class="list-group" (itemTap)="onSchoolItemTap($event)">
+            <ng-template tkListItemTemplate let-school="item">
+                <StackLayout class="list-group-item">
+                    <GridLayout rows="*, *, *" columns="*, *" class="list-group-item-content">
+                        <Label>
+                            <FormattedString ios:fontFamily="system">
+                                <Span text="&#xf007;  " class="fas text-primary"></Span>
+                                <Span text="{{school.first_name}} {{school.last_name}}"></Span>
+                            </FormattedString>
+                        </Label>
+                        <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5">
+                            <FormattedString ios:fontFamily="system">
+                                <Span text="&#xf2c2;  " class="fas text-primary"></Span>
+                                <Span [text]="school.id"></Span>
+                            </FormattedString>
+                        </Label>
+                        <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2"></StackLayout>
+                        <Label row="2" [text]="school.image" class="m-r-20" style="text-align: center;"></Label>
+                        <Image row="2" [src]="school.image" stretch="aspectFit" height="120" class="m-r-20"></Image>
+                        <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="&#xf783;   " class="fas text-primary"></Span>
+                                    <Span [text]="school.date_of_birth.getDate()"></Span>
+                                    <Span text="/"></Span>
+                                    <Span [text]="school.date_of_birth.getMonth() + 1"></Span>
+                                    <Span text="/"></Span>
+                                    <Span [text]="school.date_of_birth.getFullYear()"></Span>
+                                </FormattedString>
+                            </Label>
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="&#xf0c0;   " class="fas text-primary"></Span>
+                                    <Span [text]="school.head_of_family"></Span>
+                                </FormattedString>
+                            </Label>
+                            <Label>
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="&#xf549;   " class="fas text-primary"></Span>
+                                    <Span [text]="school.school_name"></Span>
+                                </FormattedString>
+                            </Label>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+        <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+    </GridLayout>

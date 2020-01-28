@@ -12,6 +12,10 @@ const routes: Routes = [
     { path: "featured", loadChildren: () => import("~/app/featured/featured.module").then(m => m.FeaturedModule) },
 	{ path: "settings", loadChildren: () => import("~/app/settings/settings.module").then(m => m.SettingsModule) },
 	{ path: "heads-of-family", loadChildren: () => import("~/app/heads-of-family/heads-of-family.module").then(m => m.HeadsOfFamilyModule) },
+	{ path: "sponsors", loadChildren: () => import("~/app/sponsors/sponsors.module").then(m => m.SponsorsModule) },
+	{ path: "schools", loadChildren: () => import("~/app/schools/schools.module").then(m => m.SchoolsModule) },
+	{ path: "parish-workers", loadChildren: () => import("~/app/parish-workers/parish-workers.module").then(m => m.ParishWorkersModule) },
+	{ path: "assigned-offices", loadChildren: () => import("~/app/assigned-offices/assigned-offices.module").then(m => m.AssignedOfficesModule) },
 ];
 
 @NgModule({
