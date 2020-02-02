@@ -1,7 +1,7 @@
 import { Child } from "~/app/children/shared/child.model";
+import { model } from "~/app/shared/model.model";
 
-export class HeadOfFamily {
-    id: string;
+export class HeadOfFamily extends model {
     first_name: string;
     last_name: string;
     age: number;
@@ -43,16 +43,15 @@ export class HeadOfFamily {
 	water_type_name: string;
 	distance_to_water: number;
 	situation: string;
-    image: string;
+
 
     constructor(options: any) {
-        this.id = options.id;
-        this.first_name = options.first_name
+		super(options.id, encodeURI(options.image))
+		this.first_name = options.first_name
         this.last_name = options.last_name
         this.age = Number(options.age)
         this.gender = Number(options.gender)
-        this.date_of_birth = new Date(options.date_of_birth)
-		this.image = encodeURI(options.image);
+		this.date_of_birth = new Date(options.date_of_birth)
 		this.assigned_children = options.assigned_children
 		this.assigned_children_number = options.assigned_children_number
 		this.assigned_office = options.assigned_office
@@ -89,5 +88,328 @@ export class HeadOfFamily {
 		this.water_type_name = options.water_type_name
 		this.distance_to_water = options.distance_to_water
 		this.situation = options.situation
-    }
+	}
+
+	public valid(): any {
+		return model.validation(this,HeadOfFamily.validate)
+	}
+	
+	static form = {
+		"isReadOnly": false,
+		"commitMode": "Immediate",
+		"validationMode": "Immediate",
+		"propertyAnnotations":
+		[
+			{
+				"name": "first_name",
+				"displayName": "First Name",
+				"index": 0,
+				"required": true
+			},
+			{
+				"name": "last_name",
+				"displayName": "Last Name",
+				"index": 1,
+				"required": true
+			},
+			{
+				"name": "date_of_birth",
+				"displayName": "Date of Birth",
+				"index": 2,
+				"editor": "DatePicker",
+				"required": true,
+				"strokeColor": "black"
+			},
+			{
+				"name": "gender",
+				"displayName": "Gender",
+				"index": 3,
+				"required": true,
+				"editor": "Picker",
+				"valuesProvider": ["Male","Female","Other"]
+			},
+			{
+				"name": "assigned_children_number",
+				"displayName": "Assigned Children",
+				"index": 4,
+				"required": true,
+				"editor": "Number"
+			},
+			{
+				"name": "assigned_office_name",
+				"displayName": "Assigned Office",
+				"index": 5,
+				"required": true
+			},
+			{
+				"name": "village_name",
+				"displayName": "Village",
+				"index": 6,
+				"required": true
+			},
+			{
+				"name": "deanery_name",
+				"displayName": "Deanery",
+				"index": 7,
+				"required": true
+			},
+			{
+				"name": "diocese_name",
+				"displayName": "Diocese",
+				"index": 8,
+				"required": true
+			},
+			{
+				"name": "parish_worker_name",
+				"displayName": "Parish Worker",
+				"index": 9,
+				"required": true
+			},
+			{
+				"name": "social_worker_name",
+				"displayName": "Social Worker",
+				"index": 10,
+				"required": true
+			},
+			{
+				"name": "receiving_money",
+				"displayName": "Receiving Money?",
+				"index": 11,
+				"editor": "Switch",
+				"required": true
+			},
+			{
+				"name": "assigned_sponsor_name",
+				"displayName": "Assigned Sponsor",
+				"index": 12,
+				"required": true
+			},
+			{
+				"name": "verified_by_guernsey",
+				"displayName": "Verified By Guernsey?",
+				"index": 13,
+				"editor": "Switch",
+				"required": true
+			},
+			{
+				"name": "date_verified",
+				"displayName": "Date Verified",
+				"index": 14,
+				"editor": "DatePicker",
+				"required": true,
+				"strokeColor": "black"
+			},
+			{
+				"name": "house_type_name",
+				"displayName": "House Type",
+				"index": 15,
+				"required": true
+			},
+			{
+				"name": "house_provided",
+				"displayName": "House Provided?",
+				"index": 16,
+				"editor": "Switch",
+				"required": true
+			},
+			{
+				"name": "diet_type_name",
+				"displayName": "Diet Type",
+				"index": 17,
+				"required": true
+			},
+			{
+				"name": "food_needs",
+				"displayName": "Food Needs",
+				"index": 18,
+				"required": true
+			},
+			{
+				"name": "work_type_name",
+				"displayName": "Work Type",
+				"index": 19,
+				"required": true
+			},
+			{
+				"name": "distance_to_work",
+				"displayName": "Distance To Work (Km)",
+				"index": 20,
+				"editor":"Number",
+				"required": true
+			},
+			{
+				"name": "created_by",
+				"displayName": "Record Creator",
+				"required": true,
+				"ignore":true
+			},
+			{
+				"name": "nearest_hospital_name",
+				"displayName": "Nearest Hospital",
+				"index": 21,
+				"required": true
+			},
+			{
+				"name": "distance_to_hospital",
+				"displayName": "Distance To Hospital (Km)",
+				"index":22,
+				"editor":"Number",
+				"required": true
+			},
+			{
+				"name": "water_type_name",
+				"displayName": "Water Type",
+				"index": 23,
+				"required": true
+			},
+			{
+				"name": "distance_to_water",
+				"displayName": "Distance To Water (Km)",
+				"index": 24,
+				"editor": "Number",
+				"required": true
+			},
+			{
+				"name": "situation",
+				"displayName": "Situation",
+				"index": 25,
+				"editor": "MultilineText",
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "assigned_children",
+				"ignore":true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "assigned_office",
+				"ignore":true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "village",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "deanery",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "diocese",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "image",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "parish_worker",
+				"ignore":true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "social_worker",
+				"ignore":true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "assigned_sponsor",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "house_type",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "diet_type",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "work_type",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "nearest_hospital",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "water_type",
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "id",
+				"ignore":true,
+				"required":true,
+				"modelfilter": true
+			},
+			{
+				"name": "age",
+				"ignore": true,
+				"required":true,
+				"modelfilter": true
+			}
+		]
+	}
+
+	static editableProperties = Child.form.propertyAnnotations
+	.filter(elem => !elem.modelfilter)
+	.map(elem => elem.name)
+
+	static validate = Child.form.propertyAnnotations
+	.filter(elem => !elem.modelfilter)
+	.map(elem => {
+		let type, options
+		switch(elem.editor){
+			case "Text":
+				type = "string"
+				break
+			case "MultilineText":
+				type = "string"
+				break
+			case "DatePicker":
+				type = "date"
+				break
+			case "Picker":
+				type = "picker"
+				options = elem.valuesProvider
+				break
+			case "Switch":
+				type = 'boolean'
+				break
+			default:
+				type = "string"
+		}
+		return {
+			"description": elem.displayName,
+			"property": elem.name,
+			"type": type,
+			"options": options
+		}
+
+	})
 }

@@ -42,7 +42,7 @@ export class HeadOfFamilyDetailComponent implements OnInit {
 			});
     }
 
-    get child(): HeadOfFamily {
+    get headOfFamily(): HeadOfFamily {
         return this._HeadOfFamily;
     }
 
@@ -66,7 +66,7 @@ export class HeadOfFamilyDetailComponent implements OnInit {
     * Check out the edit page in the /child/child-detail-edit folder.
     *************************************************************/
     onEditButtonTap(): void {
-        this._routerExtensions.navigate(["/heads-of-family/head-of-family-detail-edit", this.child.id],
+        this._routerExtensions.navigate(["/heads-of-family/head-of-family-detail-edit", this.headOfFamily.id],
             {
                 animated: true,
                 transition: {

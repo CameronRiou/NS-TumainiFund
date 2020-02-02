@@ -8,61 +8,14 @@ import { DataStoreService, FilesService, UserService, Query, DataStoreType } fro
 import { Config } from "../../shared/config";
 import { HeadOfFamily } from "./head-of-family.model";
 
-/************** Constant Initialization ***************/
-const editableProperties = [
-    "id",
-	"first_name",
-	"last_name",
-	"age",
-	"gender",
-	"date_of_birth",
-	"assigned_children",
-	"assigned_children_number",
-	"assigned_office",
-	"assigned_office_name",
-	"village",
-	"village_name",
-	"deanery",
-	"deanery_name",
-	"diocese",
-	"diocese_name",
-	"parish_worker",
-	"parish_worker_name",
-	"social_worker",
-	"social_worker_name",
-	"receiving_money",
-	"assigned_sponsor",
-	"assigned_sponsor_name",
-	"verified_by_guernsey",
-	"date_verified",
-	"house_type",
-	"house_type_name",
-	"house_provided",
-	"diet_type",
-	"diet_type_name",
-	"food_needs",
-	"work_type",
-	"work_type_name",
-	"distance_to_work",
-	"created_by",
-	"nearest_hospital",
-	"nearest_hospital_name",
-	"distance_to_hospital",
-	"water_type",
-	"water_type_name",
-	"distance_to_water",
-	"situation",
-	"image"
-];
-
 /************** Service Initialization ***************/
 @Injectable({
     providedIn: "root"
 })
 export class HeadOfFamilyService {
     /************** Variable Initialization ***************/
-    private static cloneUpdateModel(HeadOfFamily: HeadOfFamily): object {
-        return editableProperties.reduce((a, e) => (a[e] = HeadOfFamily[e], a), { _id: HeadOfFamily.id });
+    private static cloneUpdateModel(headOfFamily: HeadOfFamily): object {
+        return HeadOfFamily.editableProperties.reduce((a, e) => (a[e] = headOfFamily[e], a), { _id: headOfFamily.id });
     }
     private _allHeadsOfFamily: Array<HeadOfFamily> = [];
     private _HeadsOfFamilyStore = null;
@@ -92,7 +45,7 @@ export class HeadOfFamilyService {
             childData.image = output._downloadURL;
         })
         */
-        const head_of_family = new HeadOfFamily(headoffamilyData);
+        let head_of_family = new HeadOfFamily(headoffamilyData);
         return head_of_family;
     }
 

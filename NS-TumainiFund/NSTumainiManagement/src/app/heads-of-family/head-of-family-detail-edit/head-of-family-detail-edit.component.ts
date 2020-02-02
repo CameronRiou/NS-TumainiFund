@@ -8,8 +8,6 @@ import { HeadOfFamily } from "../shared/head-of-family.model";
 import { HeadOfFamilyService } from "../shared/head-of-family.service";
 import { Property } from "tns-core-modules/ui/page/page";
 
-const HeadOfFamilyMetadata = require('../shared/head-of-family-edit.metadata.json');
-
 /* ***********************************************************
 * This is the item detail edit component.
 * This component gets the selected data item, provides options to edit the item and saves the changes.
@@ -31,7 +29,7 @@ export class HeadOfFamilyDetailEditComponent implements OnInit {
 		private _pageRoute: PageRoute,
 		private _routerExtensions: RouterExtensions,
 	) {
-		this._HeadOfFamilyMetadata = JSON.parse(JSON.stringify(HeadOfFamilyMetadata));
+		this._HeadOfFamilyMetadata = JSON.parse(JSON.stringify(HeadOfFamily.form));
 	}
 
     /* ***********************************************************
@@ -259,7 +257,7 @@ export class HeadOfFamilyDetailEditComponent implements OnInit {
 		let date_of_birth = this._HeadOfFamily.date_of_birth
 		this._HeadOfFamily.age = this.getAge(date_of_birth)
 		
-		let answer = this.valid()
+		let answer = this.HeadOfFamily.valid()
 		if (answer === true) {
 			//typeof child.age === "number"                               && child.age !== null
             /* ***********************************************************
