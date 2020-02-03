@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: "sponsor-detail-edit/:id", component: SponsorDetailEditComponent }
 ];
 
-/************** Module initialisation ***************/
+/************** Module initialization ***************/
 @NgModule({
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]

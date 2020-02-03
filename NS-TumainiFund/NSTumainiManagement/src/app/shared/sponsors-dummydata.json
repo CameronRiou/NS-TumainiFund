@@ -1,0 +1,71 @@
+[
+	{
+		"_id": 1,
+		"first_name": "Test",
+		"last_name": "Sponsor",
+		"salutation": "Hi",
+		"payment": "BT",
+		"contribution_type": "example",
+		"email": "example@example.com",
+		"phone_extension":"+(000)",
+		"phone_number": "000000",
+		"address_line_1": "Place",
+        "address_line_2": "Place",
+        "country": "Place",
+        "region": "Place",
+		"area_code": "XXXXXX",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+	},
+	{
+		"_id": 2,
+		"first_name": "Test",
+		"last_name": "Sponsor 2",
+		"salutation": "Hi",
+		"payment": "BT",
+		"contribution_type": "example",
+		"email": "example@example.com",
+		"phone_extension":"+(000)",
+		"phone_number": "000000",
+		"address_line_1": "Place",
+        "address_line_2": "Place",
+        "country": "Place",
+        "region": "Place",
+		"area_code": "XXXXXX",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+	},
+	{
+		"_id": 3,
+		"first_name": "Test",
+		"last_name": "Sponsor 3",
+		"salutation": "Hi",
+		"payment": "BT",
+		"contribution_type": "example",
+		"email": "example@example.com",
+		"phone_extension":"+(000)",
+		"phone_number": "000000",
+		"address_line_1": "Place",
+        "address_line_2": "Place",
+        "country": "Place",
+        "region": "Place",
+		"area_code": "XXXXXX",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+	}
+]

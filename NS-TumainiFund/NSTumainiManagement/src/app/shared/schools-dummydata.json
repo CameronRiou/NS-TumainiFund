@@ -1,0 +1,59 @@
+[
+    {
+		"_id": "3",
+		"school_name": "Test School 3",
+		"school_type": 0,
+        "village": "Place",
+        "district": "Place",
+        "country": "Place",
+        "region": "Place",
+		"account_number": "XXXXXX",
+		"landline_extension":"+(000)",
+        "landline_number": "000000",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+	},
+    {
+		"_id": "2",
+		"school_name": "Test School 2",
+		"school_type": 0,
+        "village": "Place",
+        "district": "Place",
+        "country": "Place",
+        "region": "Place",
+		"account_number": "XXXXXX",
+		"landline_extension":"+(000)",
+        "landline_number": "000000",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+    },
+    {
+		"_id": "1",
+		"school_name": "Test School 1",
+		"school_type": 0,
+        "village": "Place",
+        "district": "Place",
+        "country": "Place",
+        "region": "Place",
+		"account_number": "XXXXXX",
+		"landline_extension":"+(000)",
+        "landline_number": "000000",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+    }
+]

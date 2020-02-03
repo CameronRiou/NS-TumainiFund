@@ -151,6 +151,16 @@
 	background-color: $page-background;
 }
 
+.home-item {
+	text-align: center;
+	font-size: 24;
+	vertical-align: middle;
+
+	.fas {
+		font-size: 32;
+	}
+}
+
 .list-group {
 	.list-group-item {
         padding: 0 0 8 0;

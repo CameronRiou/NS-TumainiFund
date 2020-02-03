@@ -38,57 +38,38 @@
                 <Label text="Name" class="p-l-15 p-b-10 m-r-20 text-secondary" row="1" textWrap = 'true'></Label>
                 <Label col="1" class="text p-b-10" text="{{sponsor.first_name}} {{sponsor.last_name}}" row="1" textWrap = 'true'></Label>
 
-                <Label text="Age" class="p-l-15 p-b-10 m-r-20 text-secondary" row="2" textWrap = 'true'></Label>
-                <Label col="1" row="2" class="text p-b-10" textWrap = 'true'>
-                    <FormattedString>
-                        <Span [text]="sponsor.age"></Span>
-                        <Span text=" Years Old"></Span>
-                    </FormattedString>
-                </Label>
-
-                <Label text="Head Of Family" class="p-l-15 p-b-10 m-r-20 text-secondary" row="5" textWrap = 'true'></Label>
-                <Label [text]="sponsor.head_of_family" row="5" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label text="Salutation" class="p-l-15 p-b-10 m-r-20 text-secondary" row="5" textWrap = 'true'></Label>
+                <Label [text]="sponsor.salutation" row="5" col="1" class="text p-b-10" textWrap = 'true'></Label>
                 
                 <Label text="Head of Family's Relation to Child" class="p-l-15 p-b-10 m-r-20 text-secondary" row="10" textWrap = 'true'></Label>
-                <Label [text]="sponsor.hof_relation" row="10" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label [text]="sponsor.payment" row="10" col="1" class="text p-b-10" textWrap = 'true'></Label>
                 
                 <Label text="Gender" class="p-l-15 p-b-10 m-r-20 text-secondary" row="6" textWrap = 'true'></Label>
-                <Label [text]="sponsor.gender" row="6" col="1" class="text p-b-10" textWrap = 'true' textTransform="capitalize"></Label>
+                <Label [text]="sponsor.contribution_type" row="6" col="1" class="text p-b-10" textWrap = 'true' textTransform="capitalize"></Label>
                 
                 <Label text="School" class="p-l-15 p-b-10 m-r-20 text-secondary" row="3" textWrap = 'true'></Label>
-                <Label [text]="sponsor.school_name" row="3" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label [text]="sponsor.email" row="3" col="1" class="text p-b-10" textWrap = 'true'></Label>
                 
                 <Label text="School Level" class="p-l-15 p-b-10 m-r-20 text-secondary" row="7" textWrap = 'true'></Label>
-                <Label [text]="sponsor.school_level" row="7" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label [text]="sponsor.phone_extension" row="7" col="1" class="text p-b-10" textWrap = 'true'></Label>
 
                 <Label text="Future Educational Goals" class="p-l-15 p-b-10 m-r-20 text-secondary" row="14" textWrap = 'true'></Label>
-                <Label [text]="sponsor.future_educational_goals" row="14" col="1" class="text p-b-10"></Label>
-                
-                <Label text="Date of Birth" class="p-l-15 p-b-10 m-r-20 text-secondary" row="8" textWrap = 'true'></Label>
-                <Label row="8" col="1" class="text p-b-10" textWrap = 'true'>
-                    <FormattedString>
-                        <Span [text]="sponsor.date_of_birth.getDate()"></Span>
-                        <Span text="/"></Span>
-                        <Span [text]="sponsor.date_of_birth.getMonth() + 1"></Span>
-                        <Span text="/"></Span>
-                        <Span [text]="sponsor.date_of_birth.getFullYear()"></Span>
-                    </FormattedString>
-                </Label>
+                <Label [text]="sponsor.phone_number" row="14" col="1" class="text p-b-10"></Label>
 
                 <Label text="Is the sponsor provided books?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="9" textWrap = 'true'></Label>
-                <Label [text]="sponsor.books ? 'Yes' : 'No'" row="9" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label [text]="sponsor.address_line_1" row="9" col="1" class="text p-b-10" textWrap = 'true'></Label>
                 
                 <Label text="Personal Status" class="p-l-15 p-b-10 m-r-20 text-secondary" row="11" textWrap = 'true'></Label>
-                <Label [text]="sponsor.personal_status" row="11" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label [text]="sponsor.address_line_2" row="11" col="1" class="text p-b-10" textWrap = 'true'></Label>
 
                 <Label text="Is the sponsor provided hygiene kits?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="12" textWrap = 'true'></Label>
-                <Label [text]="sponsor.hygiene_kits ? 'Yes' : 'No'" row="12" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label [text]="sponsor.country" row="12" col="1" class="text p-b-10" textWrap = 'true'></Label>
 
                 <Label text="Is the sponsor provided medical support?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="13" textWrap = 'true'></Label>
-                <Label [text]="sponsor.medical_support ? 'Yes' : 'No'" row="13" col="1" class="text p-b-10"></Label>
+                <Label [text]="sponsor.region" row="13" col="1" class="text p-b-10"></Label>
 
                 <Label text="Is the sponsor provided transport to the clinic?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="15" textWrap = 'true'></Label>
-                <Label [text]="sponsor.transport_to_clinic ? 'Yes' : 'No'" row="15" col="1" class="text p-b-10"></Label>
+                <Label [text]="sponsor.area_code" row="15" col="1" class="text p-b-10"></Label>
 
             </GridLayout>
         </GridLayout>

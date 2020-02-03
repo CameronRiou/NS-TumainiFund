@@ -45,24 +45,18 @@
                         <Span text=" Years Old"></Span>
                     </FormattedString>
                 </Label>
-
-                <Label text="Head Of Family" class="p-l-15 p-b-10 m-r-20 text-secondary" row="5" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.head_of_family" row="5" col="1" class="text p-b-10" textWrap = 'true'></Label>
-                
-                <Label text="Head of Family's Relation to Child" class="p-l-15 p-b-10 m-r-20 text-secondary" row="10" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.hof_relation" row="10" col="1" class="text p-b-10" textWrap = 'true'></Label>
                 
                 <Label text="Gender" class="p-l-15 p-b-10 m-r-20 text-secondary" row="6" textWrap = 'true'></Label>
                 <Label [text]="parish_worker.gender" row="6" col="1" class="text p-b-10" textWrap = 'true' textTransform="capitalize"></Label>
                 
-                <Label text="School" class="p-l-15 p-b-10 m-r-20 text-secondary" row="3" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.school_name" row="3" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label text="Village" class="p-l-15 p-b-10 m-r-20 text-secondary" row="3" textWrap = 'true'></Label>
+                <Label [text]="parish_worker.village_name" row="3" col="1" class="text p-b-10" textWrap = 'true'></Label>
                 
-                <Label text="School Level" class="p-l-15 p-b-10 m-r-20 text-secondary" row="7" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.school_level" row="7" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label text="Assigned Office" class="p-l-15 p-b-10 m-r-20 text-secondary" row="7" textWrap = 'true'></Label>
+                <Label [text]="parish_worker.assigned_office_name" row="7" col="1" class="text p-b-10" textWrap = 'true'></Label>
 
-                <Label text="Future Educational Goals" class="p-l-15 p-b-10 m-r-20 text-secondary" row="14" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.future_educational_goals" row="14" col="1" class="text p-b-10"></Label>
+                <Label text="Assigned Children" class="p-l-15 p-b-10 m-r-20 text-secondary" row="14" textWrap = 'true'></Label>
+                <Label [text]="parish_worker.assigned_children_number" row="14" col="1" class="text p-b-10"></Label>
                 
                 <Label text="Date of Birth" class="p-l-15 p-b-10 m-r-20 text-secondary" row="8" textWrap = 'true'></Label>
                 <Label row="8" col="1" class="text p-b-10" textWrap = 'true'>
@@ -74,22 +68,13 @@
                         <Span [text]="parish_worker.date_of_birth.getFullYear()"></Span>
                     </FormattedString>
                 </Label>
-
-                <Label text="Is the Child provided books?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="9" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.books ? 'Yes' : 'No'" row="9" col="1" class="text p-b-10" textWrap = 'true'></Label>
                 
-                <Label text="Personal Status" class="p-l-15 p-b-10 m-r-20 text-secondary" row="11" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.personal_status" row="11" col="1" class="text p-b-10" textWrap = 'true'></Label>
+                <Label text="Diocese" class="p-l-15 p-b-10 m-r-20 text-secondary" row="11" textWrap = 'true'></Label>
+                <Label [text]="parish_worker.diocese_name" row="11" col="1" class="text p-b-10" textWrap = 'true'></Label>
 
-                <Label text="Is the Child provided hygiene kits?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="12" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.hygiene_kits ? 'Yes' : 'No'" row="12" col="1" class="text p-b-10" textWrap = 'true'></Label>
-
-                <Label text="Is the parish_worker provided medical support?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="13" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.medical_support ? 'Yes' : 'No'" row="13" col="1" class="text p-b-10"></Label>
-
-                <Label text="Is the parish_worker provided transport to the clinic?" class="p-l-15 p-b-10 m-r-20 text-secondary" row="15" textWrap = 'true'></Label>
-                <Label [text]="parish_worker.transport_to_clinic ? 'Yes' : 'No'" row="15" col="1" class="text p-b-10"></Label>
-
+                <Label text="Deanery" class="p-l-15 p-b-10 m-r-20 text-secondary" row="12" textWrap = 'true'></Label>
+				<Label [text]="parish_worker.deanery_name" row="12" col="1" class="text p-b-10" textWrap = 'true'></Label>
+				
             </GridLayout>
         </GridLayout>
     </ScrollView>

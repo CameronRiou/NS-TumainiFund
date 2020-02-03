@@ -1,19 +1,19 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
-import { BrowseRoutingModule } from "./browse-routing.module";
-import { BrowseComponent } from "./browse.component";
+import { HomeRoutingModule } from "./home-routing.module";
+import { HomeComponent } from "./home.component";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        BrowseRoutingModule
+        HomeRoutingModule
     ],
     declarations: [
-        BrowseComponent
+        HomeComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
-export class BrowseModule { }
+export class HomeModule { }

@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: "assigned-office-detail-edit/:id", component: AssignedOfficeDetailEditComponent }
 ];
 
-/************** Module initialisation ***************/
+/************** Module initialization ***************/
 @NgModule({
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]

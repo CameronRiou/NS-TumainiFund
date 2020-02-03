@@ -8,28 +8,6 @@ import { DataStoreService, FilesService, UserService, Query, DataStoreType } fro
 import { Config } from "../../shared/config";
 import { Sponsor } from "./sponsor.model";
 
-/************** Constant Initialization ***************/
-const editableProperties = [
-    "first_name",
-    "last_name",
-    "date_of_birth",
-    "gender",
-    "school_name",
-    "school_level",
-    "books",
-    "head_of_family",
-    "hof_relation",
-    "personal_status",
-    "hygiene_kits",
-    "medical_support",
-    "future_educational_goals",
-    "transport_to_clinic",
-    "id",
-    "age",
-    "school_id",
-    "image"
-];
-
 /************** Service Initialization ***************/
 @Injectable({
     providedIn: "root"
@@ -37,7 +15,7 @@ const editableProperties = [
 export class SponsorService {
     /************** Variable Initialization ***************/
     private static cloneUpdateModel(sponsor: Sponsor): object {
-        return editableProperties.reduce((a, e) => (a[e] = sponsor[e], a), { _id: sponsor.id });
+        return Sponsor.editableProperties.reduce((a, e) => (a[e] = sponsor[e], a), { _id: sponsor.id });
     }
     private _allSponsors: Array<Sponsor> = [];
     private _sponsorsStore = null;

@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: "child-detail-edit/:id", component: ChildDetailEditComponent }
 ];
 
-/************** Module initialisation ***************/
+/************** Module initialization ***************/
 @NgModule({
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]

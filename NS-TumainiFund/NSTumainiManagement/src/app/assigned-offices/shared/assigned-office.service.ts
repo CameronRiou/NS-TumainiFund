@@ -8,28 +8,6 @@ import { DataStoreService, FilesService, UserService, Query, DataStoreType } fro
 import { Config } from "../../shared/config";
 import { AssignedOffice } from "./assigned-office.model";
 
-/************** Constant Initialization ***************/
-const editableProperties = [
-    "first_name",
-    "last_name",
-    "date_of_birth",
-    "gender",
-    "assigned_office_name",
-    "assigned_office_level",
-    "books",
-    "head_of_family",
-    "hof_relation",
-    "personal_status",
-    "hygiene_kits",
-    "medical_support",
-    "future_educational_goals",
-    "transport_to_clinic",
-    "id",
-    "age",
-    "assigned_office_id",
-    "image"
-];
-
 /************** Service Initialization ***************/
 @Injectable({
     providedIn: "root"
@@ -37,7 +15,7 @@ const editableProperties = [
 export class AssignedOfficeService {
     /************** Variable Initialization ***************/
     private static cloneUpdateModel(assigned_office: AssignedOffice): object {
-        return editableProperties.reduce((a, e) => (a[e] = assigned_office[e], a), { _id: assigned_office.id });
+        return AssignedOffice.editableProperties.reduce((a, e) => (a[e] = assigned_office[e], a), { _id: assigned_office.id });
     }
     private _allAssigned_Offices: Array<AssignedOffice> = [];
     private _assigned_officesStore = null;
@@ -54,7 +32,6 @@ export class AssignedOfficeService {
     /************** Functions ***************/
     getAssignedOfficeById(id: string): AssignedOffice {
         if (id) {         
-			console.dir(this._allAssigned_Offices)   
             return this._allAssigned_Offices.filter((assigned_office) => {
                 return assigned_office.id === id;
             })[0];

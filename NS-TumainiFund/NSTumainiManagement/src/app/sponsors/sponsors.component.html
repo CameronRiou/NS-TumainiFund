@@ -26,26 +26,10 @@
                         <Label row="2" [text]="sponsor.image" class="m-r-20" style="text-align: center;"></Label>
                         <Image row="2" [src]="sponsor.image" stretch="aspectFit" height="120" class="m-r-20"></Image>
                         <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
-                            <Label class="p-b-10">
-                                <FormattedString ios:fontFamily="system">
-                                    <Span text="&#xf783;   " class="fas text-primary"></Span>
-                                    <Span [text]="sponsor.date_of_birth.getDate()"></Span>
-                                    <Span text="/"></Span>
-                                    <Span [text]="sponsor.date_of_birth.getMonth() + 1"></Span>
-                                    <Span text="/"></Span>
-                                    <Span [text]="sponsor.date_of_birth.getFullYear()"></Span>
-                                </FormattedString>
-                            </Label>
-                            <Label class="p-b-10">
-                                <FormattedString ios:fontFamily="system">
-                                    <Span text="&#xf0c0;   " class="fas text-primary"></Span>
-                                    <Span [text]="sponsor.head_of_family"></Span>
-                                </FormattedString>
-                            </Label>
                             <Label>
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="&#xf549;   " class="fas text-primary"></Span>
-                                    <Span [text]="sponsor.school_name"></Span>
+                                    <Span [text]="sponsor.contribution_type"></Span>
                                 </FormattedString>
                             </Label>
                         </StackLayout>

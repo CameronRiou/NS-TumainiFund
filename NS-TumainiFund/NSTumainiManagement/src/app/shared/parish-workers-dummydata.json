@@ -1,0 +1,80 @@
+[
+	{
+		"_id": 1,
+		"first_name": "Test",
+		"last_name": "Parish Worker",
+		"age": 30,
+		"gender": 1,
+		"date_of_birth": "1978-12-20T00:00:00.000Z",
+		"image": null,
+		"assigned_children": null,
+		"assigned_children_number": 1,
+		"assigned_office": null,
+		"assigned_office_name": "Place",
+		"village": null,
+		"village_name": "Place",
+		"deanery": null,
+		"deanery_name": "Place",
+		"diocese": null,
+		"diocese_name": "Place",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+	},
+	{
+		"_id": 2,
+		"first_name": "Test",
+		"last_name": "Parish Worker 2",
+		"age": 30,
+		"gender": 1,
+		"date_of_birth": "1978-12-20T00:00:00.000Z",
+		"image": null,
+		"assigned_children": null,
+		"assigned_children_number": 1,
+		"assigned_office": null,
+		"assigned_office_name": "Place",
+		"village": null,
+		"village_name": "Place",
+		"deanery": null,
+		"deanery_name": "Place",
+		"diocese": null,
+		"diocese_name": "Place",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+	},
+	{
+		"_id": 3,
+		"first_name": "Test",
+		"last_name": "Parish Worker 3",
+		"age": 30,
+		"gender": 1,
+		"date_of_birth": "1978-12-20T00:00:00.000Z",
+		"image": null,
+		"assigned_children": null,
+		"assigned_children_number": 1,
+		"assigned_office": null,
+		"assigned_office_name": "Place",
+		"village": null,
+		"village_name": "Place",
+		"deanery": null,
+		"deanery_name": "Place",
+		"diocese": null,
+		"diocese_name": "Place",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+	}
+]

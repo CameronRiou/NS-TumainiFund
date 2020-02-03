@@ -8,28 +8,6 @@ import { DataStoreService, FilesService, UserService, Query, DataStoreType } fro
 import { Config } from "../../shared/config";
 import { ParishWorker } from "./parish-worker.model";
 
-/************** Constant Initialization ***************/
-const editableProperties = [
-    "first_name",
-    "last_name",
-    "date_of_birth",
-    "gender",
-    "parish_worker_name",
-    "parish_worker_level",
-    "books",
-    "head_of_family",
-    "hof_relation",
-    "personal_status",
-    "hygiene_kits",
-    "medical_support",
-    "future_educational_goals",
-    "transport_to_clinic",
-    "id",
-    "age",
-    "parish_worker_id",
-    "image"
-];
-
 /************** Service Initialization ***************/
 @Injectable({
     providedIn: "root"
@@ -37,7 +15,7 @@ const editableProperties = [
 export class ParishWorkerService {
     /************** Variable Initialization ***************/
     private static cloneUpdateModel(parish_worker: ParishWorker): object {
-        return editableProperties.reduce((a, e) => (a[e] = parish_worker[e], a), { _id: parish_worker.id });
+        return ParishWorker.editableProperties.reduce((a, e) => (a[e] = parish_worker[e], a), { _id: parish_worker.id });
     }
     private _allParish_Workers: Array<ParishWorker> = [];
     private _parish_workersStore = null;

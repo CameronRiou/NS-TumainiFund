@@ -8,8 +8,6 @@ import { ParishWorker } from "../shared/parish-worker.model";
 import { ParishWorkerService } from "../shared/parish-worker.service";
 import { Property } from "tns-core-modules/ui/page/page";
 
-const parish_workerMetadata = require('../shared/parish-worker-edit.metadata.json');
-
 /* ***********************************************************
 * This is the item detail edit component.
 * This component gets the selected data item, provides options to edit the item and saves the changes.
@@ -31,7 +29,7 @@ export class ParishWorkerDetailEditComponent implements OnInit {
 		private _pageRoute: PageRoute,
 		private _routerExtensions: RouterExtensions,
 	) {
-		this._parish_workerMetadata = JSON.parse(JSON.stringify(parish_workerMetadata));
+		this._parish_workerMetadata = JSON.parse(JSON.stringify(ParishWorker.form));
 	}
 
     /* ***********************************************************
@@ -76,118 +74,6 @@ export class ParishWorkerDetailEditComponent implements OnInit {
 		return age;
 	}
 
-	isValidDate(date) {
-		return date && Object.prototype.toString.call(date) === "[object Date]" && !isNaN(date);
-	}
-
-	valid() {
-		let parish_worker: ParishWorker = this.parish_worker
-		let checks =
-			[
-				{
-					"description": "First Name",
-					"property": "first_name",
-					"type": "string"
-				},
-				{
-					"description": "Last Name",
-					"property": "last_name",
-					"type": "string"
-				},
-				{
-					"description": "Date of Birth",
-					"property": "date_of_birth",
-					"type": "date"
-				},
-				{
-					"description": "Gender",
-					"property": "gender",
-					"type": "picker",
-					"options": [
-						"Male",
-						"Female",
-						"Other"
-					]
-				},
-				{
-					"description": "School Name",
-					"property": "school_name",
-					"type": "string"
-				},
-				{
-					"description": "School Level",
-					"property": "school_level",
-					"type": "picker",
-					"options": [
-						"Pre",
-						"Primary",
-						"Secondary",
-						"Post 16",
-						"University"
-					]
-				},
-				{
-					"description": "Books",
-					"property": "books",
-					"type": "boolean"
-				},
-				{
-					"description": "Head Of Family",
-					"property": "head_of_family",
-					"type": "string"
-				},
-				{
-					"description": "Head of Family Relation",
-					"property": "hof_relation",
-					"type": "string"
-				},
-				{
-					"description": "Personal Status",
-					"property": "personal_status",
-					"type": "string"
-				},
-				{
-					"description": "Hygiene Kits",
-					"property": "hygiene_kits",
-					"type": "boolean"
-				},
-				{
-					"description": "Medical Support",
-					"property": "medical_support",
-					"type": "boolean"
-				},
-				{
-					"description": "Future Educational Goals",
-					"property": "future_educational_goals",
-					"type": "string"
-				},
-				{
-					"description": "Transport To Clinic",
-					"property": "transport_to_clinic",
-					"type": "boolean"
-				}
-			]
-		let valid = true
-
-		for (let field of checks) {
-			switch (field.type) {
-				case "picker":
-					//field.options.indexOf(parish_worker[field.property]) === -1 ? valid = false : false;
-					(0 <= parish_worker[field.property] && parish_worker[field.property] < field.options.length) ? valid : valid = false;
-					break
-				case "date":
-					this.isValidDate(parish_worker[field.property]) ? valid : valid = false;
-					break
-				default:
-					typeof parish_worker[field.property] != field.type ? valid = false : false;
-			}
-				parish_worker[field.property] == null ? valid = false : false;
-				parish_worker[field.property] === "" ? valid = false : false;
-			if (!valid) return `${field.description} || ${parish_worker[field.property]}`
-		};
-		return valid
-	}
-
     /* ***********************************************************
     * The edit cancel button navigates back to the item details page.
     *************************************************************/
@@ -201,21 +87,9 @@ export class ParishWorkerDetailEditComponent implements OnInit {
     *************************************************************/
 	onDoneButtonTap(): void {
 		this._isUpdating = true;
-
-		//this._parish_worker.parish_worker_level = ["Pre", "Primary", "Secondary", "Post 16", "University"][this._parish_worker.parish_worker_level]
-		let date_of_birth = this._parish_worker.date_of_birth
-		this._parish_worker.age = this.getAge(date_of_birth)
-		
-		let answer = this.valid()
+		this._parish_worker.age = this.getAge(this._parish_worker.date_of_birth)
+		let answer = this.parish_worker.valid()
 		if (answer === true) {
-			//typeof parish_worker.age === "number"                               && parish_worker.age !== null
-            /* ***********************************************************
-            * By design this app is set up to work with read-only sample data.
-            * Follow the steps in the "Kinvey database setup" section in app/readme.md file
-            * and uncomment the code block below to make it editable.
-            *************************************************************/
-
-			/* ***********************uncomment here*********************/
 			let queue = Promise.resolve();
             /*if (this._isParishWorkerImageDirty && this._parish_worker.imageUrl) {
                 queue = queue
@@ -247,35 +121,5 @@ export class ParishWorkerDetailEditComponent implements OnInit {
 			console.log(answer)
 			this._isUpdating = false;
 		}
-
-		/*********************uncomment here*************************/
-
-        /* ***********************************************************
-        * Comment out the code block below if you made the app editable.
-        *************************************************************
-        const readOnlyMessage = "Check out the \"Kinvey database setup\" section in the readme file to make it editable."; // tslint:disable-line:max-line-length
-        const queue = Promise.resolve();
-        queue.then(() => alert({ title: "Read-Only Template!", message: readOnlyMessage, okButtonText: "Ok" }))
-            .then(() => this._routerExtensions.backToPreviousPage());
-    
-        */
 	}
-
-	// private initializeEditOptions(): void {
-	//     for (const classItem of parish_workerClassList) {
-	//         this._parish_workerClassOptions.push(classItem);
-	//     }
-
-	//     for (const doorItem of parish_workerDoorList) {
-	//         this._parish_workerDoorOptions.push(doorItem);
-	//     }
-
-	//     for (const seatItem of parish_workerSeatList) {
-	//         this._parish_workerSeatOptions.push(seatItem);
-	//     }
-
-	//     for (const transmissionItem of parish_workerTransmissionList) {
-	//         this._parish_workerTransmissionOptions.push(transmissionItem);
-	//     }
-	// }
 }

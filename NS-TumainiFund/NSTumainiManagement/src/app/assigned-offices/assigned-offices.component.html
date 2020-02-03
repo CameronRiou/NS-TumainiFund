@@ -13,7 +13,7 @@
                         <Label>
                             <FormattedString ios:fontFamily="system">
                                 <Span text="&#xf007;  " class="fas text-primary"></Span>
-                                <Span text="{{assigned_office.first_name}} {{assigned_office.last_name}}"></Span>
+                                <Span text="{{assigned_office.office_name}}"></Span>
                             </FormattedString>
                         </Label>
                         <Label col="1" horizontalAlignment="right" class="list-group-item-text m-r-5">
@@ -29,23 +29,13 @@
                             <Label class="p-b-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="&#xf783;   " class="fas text-primary"></Span>
-                                    <Span [text]="assigned_office.date_of_birth.getDate()"></Span>
-                                    <Span text="/"></Span>
-                                    <Span [text]="assigned_office.date_of_birth.getMonth() + 1"></Span>
-                                    <Span text="/"></Span>
-                                    <Span [text]="assigned_office.date_of_birth.getFullYear()"></Span>
+                                    <Span [text]="assigned_office.country"></Span>
                                 </FormattedString>
                             </Label>
                             <Label class="p-b-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="&#xf0c0;   " class="fas text-primary"></Span>
-                                    <Span [text]="assigned_office.head_of_family"></Span>
-                                </FormattedString>
-                            </Label>
-                            <Label>
-                                <FormattedString ios:fontFamily="system">
-                                    <Span text="&#xf549;   " class="fas text-primary"></Span>
-                                    <Span [text]="assigned_office.school_name"></Span>
+                                    <Span [text]="assigned_office.region"></Span>
                                 </FormattedString>
                             </Label>
                         </StackLayout>

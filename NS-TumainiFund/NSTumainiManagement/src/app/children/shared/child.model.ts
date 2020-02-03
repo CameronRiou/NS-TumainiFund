@@ -160,12 +160,12 @@ export class Child extends model {
 				"modelfilter": true
 			},
 			{
+				"description": "Age",
 				"name": "age",
 				"index": 15,
 				"ignore": true,
 				"editor": "Number",
-				"required": true,
-				"modelfilter": true
+				"required": true
 			},
 			{
 				"name": "school",
@@ -209,6 +209,9 @@ export class Child extends model {
 				break
 			case "Switch":
 				type = 'boolean'
+				break
+			case "Number":
+				type = 'number'
 				break
 			default:
 				type = "string"

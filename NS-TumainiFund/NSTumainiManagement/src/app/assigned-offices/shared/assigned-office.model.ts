@@ -1,42 +1,165 @@
-export class AssignedOffice {
-    id: string;
-    first_name: string;
-    last_name: string;
-    age: number;
-    gender: number;
-    date_of_birth: Date;
-    school_name: string;
-    school: number;
-    school_level: number;
-    books: boolean;
-    head_of_family: string;
-    hof_relation: string;
-    personal_status: string;
-    hygiene_kits: boolean;
-    medical_support: boolean;
-    future_educational_goals: string;
-    transport_to_clinic: boolean;
-    image: string;
+import { model } from "~/app/shared/model.model";
 
+export class AssignedOffice extends model {
+    office_name: string;
+    address_line_1: string;
+	address_line_2: string;
+	country: string;
+	region: string;
+	area_code: string;
+	nac: string;
+	landline_extension: string;
+	landline_number: string;
 
+	
     constructor(options: any) {
-        this.id = options.id;
-        this.first_name = options.first_name
-        this.last_name = options.last_name
-        this.age = Number(options.age)
-        this.gender = Number(options.gender)
-        this.date_of_birth = new Date(options.date_of_birth)
-        this.school_name = options.school_name
-        this.school = Number(options.school)
-        this.school_level = Number(options.school_level)
-        this.books = options.books
-        this.head_of_family = options.head_of_family
-        this.hof_relation = options.hof_relation
-        this.personal_status = options.personal_status
-        this.hygiene_kits = options.hygiene_kits
-        this.medical_support = options.medical_support;
-        this.future_educational_goals = options.future_educational_goals;
-        this.transport_to_clinic = options.transport_to_clinic
-        this.image = encodeURI(options.image);
-    }
+		super(options.id, encodeURI(options.image))
+		this.office_name = options.office_name
+		this.address_line_1 = options.address_line_1
+		this.address_line_2 = options.address_line_2
+		this.country = options.country
+		this.region = options.region
+		this.area_code = options.area_code
+		this.nac = options.nac
+		this.landline_extension = options.landline_extension
+		this.landline_number = options.landline_number
+		
+		// console.dir(AssignedOffice.form.propertyAnnotations)
+	}
+	
+	public valid(): any {
+		return model.validation(this,AssignedOffice.validate)
+		model.validation(this,AssignedOffice.validate)
+		return 'testing'
+	}
+
+	static form = 
+	{
+		"isReadOnly": false,
+		"commitMode": "Immediate",
+		"validationMode": "Immediate",
+		"propertyAnnotations":
+		[
+			{
+				"name": "office_name",
+				"displayName": "Office Name",
+				"index": 0,
+				"editor": "Text",
+				"required": true
+			},
+			{
+				"name": "address_line_1",
+				"displayName": "Address Line 1",
+				"index": 1,
+				"editor": "Text",
+				"required": true
+			},
+			{
+				"name": "address_line_2",
+				"displayName": "Address Line 2",
+				"index": 2,
+				"editor": "Text",
+				"required": true
+			},
+			{
+				"name": "country",
+				"displayName": "Country",
+				"index": 3,
+				"required": true,
+				"editor": "Text"
+			},
+			{
+				"name": "region",
+				"displayName": "Region",
+				"index": 4,
+				"editor": "Text",
+				"required": true
+			},
+			{
+				"name": "area_code",
+				"displayName": "Area Code",
+				"index": 5,
+				"required": true,
+				"editor": "Text"
+			},
+			{
+				"name": "nac",
+				"displayName": "NAC",
+				"index": 6,
+				"editor": "Text",
+				"required": true
+			},
+			{
+				"name": "landline_extension",
+				"displayName": "Landline Extension",
+				"index": 7,
+				"editor": "Text",
+				"required": true
+			},
+			{
+				"name": "landline_number",
+				"displayName": "Landline Number",
+				"index": 8,
+				"editor": "Text",
+				"required": true
+			},
+			{
+				"name": "image",
+				"index": 9,
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			},
+			{
+				"name": "id",
+				"index": 10,
+				"ignore": true,
+				"required": true,
+				"modelfilter": true
+			}
+		]
+	}
+
+	static editableProperties = AssignedOffice.form.propertyAnnotations
+	.filter(elem => !elem.modelfilter)
+	.map(elem => elem.name)
+
+	static validate = AssignedOffice.form.propertyAnnotations
+	.filter(elem => {
+		console.dir(elem)
+		return !elem.modelfilter
+	})
+	.map(elem => {
+		let type, options
+		switch(elem.editor){
+			case "Text":
+				type = "string"
+				break
+			case "MultilineText":
+				type = "string"
+				break
+			case "DatePicker":
+				type = "date"
+				break
+			/*case "Picker":
+				type = "picker"
+				options = elem.valuesProvider
+				break*/
+			case "Switch":
+				type = 'boolean'
+				break
+			case "Number":
+				type = 'number'
+				break
+			default:
+				type = "string"
+		}
+		return {
+			"description": elem.displayName,
+			"property": elem.name,
+			"type": type,
+			"options": options
+		}
+
+	})
 }

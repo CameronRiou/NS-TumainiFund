@@ -279,54 +279,63 @@ export class HeadOfFamily extends model {
 			},
 			{
 				"name": "assigned_children",
+				"editor": "Number",
 				"ignore":true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "assigned_office",
+				"editor": "Number",
 				"ignore":true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "village",
+				"editor": "Number",
 				"ignore": true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "deanery",
+				"editor": "Number",
 				"ignore": true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "diocese",
+				"editor": "Number",
 				"ignore": true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "image",
+				"editor": "Text",
 				"ignore": true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "parish_worker",
+				"editor": "Number",
 				"ignore":true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "social_worker",
+				"editor": "Number",
 				"ignore":true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "assigned_sponsor",
+				"editor": "Number",
 				"ignore": true,
 				"required": true,
 				"modelfilter": true
@@ -351,36 +360,41 @@ export class HeadOfFamily extends model {
 			},
 			{
 				"name": "nearest_hospital",
+				"editor": "Number",
 				"ignore": true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "water_type",
+				"editor": "Number",
 				"ignore": true,
 				"required": true,
 				"modelfilter": true
 			},
 			{
 				"name": "id",
+				"editor": "Number",
 				"ignore":true,
 				"required":true,
 				"modelfilter": true
 			},
 			{
+				"description": "Age",
 				"name": "age",
+				"editor": "Number",
 				"ignore": true,
 				"required":true,
-				"modelfilter": true
+				// "modelfilter": true
 			}
 		]
 	}
 
-	static editableProperties = Child.form.propertyAnnotations
+	static editableProperties = HeadOfFamily.form.propertyAnnotations
 	.filter(elem => !elem.modelfilter)
 	.map(elem => elem.name)
 
-	static validate = Child.form.propertyAnnotations
+	static validate = HeadOfFamily.form.propertyAnnotations
 	.filter(elem => !elem.modelfilter)
 	.map(elem => {
 		let type, options
@@ -400,6 +414,9 @@ export class HeadOfFamily extends model {
 				break
 			case "Switch":
 				type = 'boolean'
+				break
+			case "Number":
+				type = 'number'
 				break
 			default:
 				type = "string"

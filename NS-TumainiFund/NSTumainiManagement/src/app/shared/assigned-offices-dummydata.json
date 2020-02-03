@@ -1,0 +1,59 @@
+[
+    {
+		"_id": "3",
+        "office_name": "Test Office 3",
+        "address_line_1": "Place",
+        "address_line_2": "Place",
+        "country": "Place",
+        "region": "Place",
+		"area_code": "XXXXXX",
+		"nac": "XXXXXX",
+		"landline_extension":"+(000)",
+        "landline_number": "000000",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+	},
+    {
+        "_id": "2",
+        "office_name": "Test Office 2",
+        "address_line_1": "Place",
+        "address_line_2": "Place",
+        "country": "Place",
+        "region": "Place",
+		"area_code": "XXXXXX",
+		"nac": "XXXXXX",
+		"landline_extension":"+(000)",
+        "landline_number": "000000",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+    },
+    {
+        "_id": "1",
+        "office_name": "Test Office",
+        "address_line_1": "Place",
+        "address_line_2": "Place",
+        "country": "Place",
+        "region": "Place",
+		"area_code": "XXXXXX",
+		"nac": "XXXXXX",
+		"landline_extension":"+(000)",
+        "landline_number": "000000",
+		"_acl": {
+			"creator": "kid_S1kLDRkz4"
+		},
+		"_kmd": {
+			"lmt": "2020-02-02T13:30:25.821Z",
+			"ect": "2019-12-08T13:32:53.417Z"
+		}
+    }
+]

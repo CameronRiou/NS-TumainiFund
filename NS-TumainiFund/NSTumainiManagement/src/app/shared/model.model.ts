@@ -10,6 +10,7 @@ export class model {
 	static validation(item, validate): any {
 		let valid = true
 		for (let field of validate) {
+			// console.dir(field)
 			switch (field.type) {
 				case "picker":
 					//field.options.indexOf(child[field.property]) === -1 ? valid = false : false;
@@ -19,11 +20,10 @@ export class model {
 					(item[field.property] && Object.prototype.toString.call(item[field.property]) === "[object Date]" && !isNaN(item[field.property])) ? valid : valid = false;
 					break
 				default:
-					console.log(field.description, field.type)
 					typeof item[field.property] == field.type ? valid : valid=false;
 			}
-				item[field.property] == null ? valid = false : false;
-				item[field.property] === "" ? valid = false : false;
+			item[field.property] == null ? valid = false : false;
+			item[field.property] === "" ? valid = false : false;
 			if (!valid) return `${field.description} || ${item[field.property]}`
 		};
 		return valid
