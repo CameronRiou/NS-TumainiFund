@@ -29,17 +29,23 @@
 			&.sidedrawer-left {
 				background-color: $sd-background;
 				.sidedrawer-header-image {
-				color: $background-dark;
-				height: $sidedrawer-header-image-size;
-				width: $sidedrawer-header-image-size;
-				font-size: $sidedrawer-header-image-size;
-				padding: 0;
-				margin-bottom: $sidedrawer-header-image-offset-bottom;
-				margin-top: $sidedrawer-header-image-offset-top;
+					color: $background-dark;
+					height: $sidedrawer-header-image-size;
+					width: $sidedrawer-header-image-size;
+					font-size: $sidedrawer-header-image-size;
+					padding: 0;
+					margin-bottom: $sidedrawer-header-image-offset-bottom;
+					margin-top: $sidedrawer-header-image-offset-top;
 				}
 				.footnote {
 				color: rgba($sd-text, 0.5);
 				}
+			}
+			.sidedrawer-logo {
+				width: 100%;
+				min-height: 100;
+				background-color: pink;
+				z-index: 99;
 			}
 			.sidedrawer-header {
 				background-color: $sd-header;

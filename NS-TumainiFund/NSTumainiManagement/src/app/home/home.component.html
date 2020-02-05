@@ -1,17 +1,8 @@
 <ActionBar class="action-bar">
-    <!-- 
-    Use the NavigationButton as a side-drawer button in Android
-    because ActionItems are shown on the right side of the ActionBar
-    -->
-    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <!-- 
-    Use the ActionItem for IOS with position set to left. Using the
-    NavigationButton as a side-drawer button in iOS is not possible,
-    because its function is to always navigate back in the application.
-    -->
-    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
-    </ActionItem>
+    <NavigationButton visibility="collapsed"></NavigationButton>
+	<ActionItem class="action-item" (tap)="onDrawerButtonTap()" ios.position="left">
+		<Label class="fas" text="&#xf0c9;"></Label>
+	</ActionItem>
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
 
@@ -21,32 +12,32 @@
 
 	<StackLayout class="home-item" row="0" col="0"  (tap)="onMenuItemTap('/children')">
 			<Label text="&#xf1ae;" class="fas"></Label>
-			<Label text="Children"></Label>
+			<Label textWrap="true" text="Children"></Label>
 	</StackLayout>
 
 	<GridLayout rows="*, *" class="home-item" row="0" col="1" (tap)="onMenuItemTap('/heads-of-family')">
 		<Label row="0" text="&#xf0c0;" class="fas"></Label>
-		<Label row="1" text="Heads Of Family"></Label>
+		<Label textWrap="true" row="1" text="Heads Of Family"></Label>
 	</GridLayout>
 	
 	<GridLayout rows="*, *" class="home-item" row="1" col="0" (tap)="onMenuItemTap('/schools')">
 		<Label row="0" text="&#xf549;" class="fas "></Label>
-		<Label row="1" text="Schools" class=""></Label>
+		<Label textWrap="true" row="1" text="Schools" class=""></Label>
 	</GridLayout>
 					
 	<GridLayout rows="*, *" class="home-item" row="1" col="1" (tap)="onMenuItemTap('/sponsors')">
 		<Label row="0" text="&#xf4b9;" class="fas "></Label>
-		<Label row="1" text="Sponsors" class=""></Label>
+		<Label textWrap="true" row="1" text="Sponsors" class=""></Label>
 	</GridLayout>
 	
 	<GridLayout rows="*, *" class="home-item" row="2" col="0" (tap)="onMenuItemTap('/parish-workers')">
 		<Label row="0" text="&#xf007;" class="fas "></Label>
-		<Label row="1" text="Parish Workers" class=""></Label>
+		<Label textWrap="true" row="1" text="Parish Workers" class=""></Label>
 	</GridLayout>
 	
 	<GridLayout rows="*, *" class="home-item" row="2" col="1" (tap)="onMenuItemTap('/assigned-offices')">
 		<Label row="0" text="&#xf1ad;" class="fas "></Label>
-		<Label row="1" text="Assigned Offices" class=""></Label>
+		<Label textWrap="true" row="1" text="Assigned Offices" class=""></Label>
 	</GridLayout>
 
 </GridLayout>

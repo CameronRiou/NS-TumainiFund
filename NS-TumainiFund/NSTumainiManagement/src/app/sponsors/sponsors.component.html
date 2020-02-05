@@ -10,7 +10,7 @@
             <ng-template tkListItemTemplate let-sponsor="item">
                 <StackLayout class="list-group-item">
                     <GridLayout rows="*, *, *" columns="*, *" class="list-group-item-content">
-                        <Label>
+                        <Label textWrap="true">
                             <FormattedString ios:fontFamily="system">
                                 <Span text="&#xf007;  " class="fas text-primary"></Span>
                                 <Span text="{{sponsor.first_name}} {{sponsor.last_name}}"></Span>

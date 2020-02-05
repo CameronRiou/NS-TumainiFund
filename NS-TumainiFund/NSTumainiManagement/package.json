@@ -5,7 +5,7 @@
       "version": "6.1.2"
     },
     "tns-ios": {
-      "version": "6.1.0"
+      "version": "6.1.1"
     }
   },
   "description": "NativeScript Application",
@@ -23,7 +23,7 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
-    "kinvey-nativescript-sdk": "4.2.3",
+    "kinvey-nativescript-sdk": "^4.2.5",
     "nativescript-angular": "~8.2.0",
     "nativescript-feedback": "1.3.12",
     "nativescript-fingerprint-auth": "7.0.2",
@@ -42,10 +42,10 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "~8.2.0",
-    "@ngtools/webpack": "~8.2.0",
+    "@ngtools/webpack": "^8.3.24",
     "codelyzer": "~4.5.0",
     "nativescript-dev-webpack": "~1.2.0",
-    "node-sass": "^4.7.1",
+    "node-sass": "^4.13.1",
     "tslint": "~5.19.0",
     "typescript": "~3.5.3"
   },
